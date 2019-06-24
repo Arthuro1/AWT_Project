@@ -137,7 +137,7 @@ header .navbar .nav-link {
 }
 
 header .navbar .cta-btn a {
-  background: primary;
+  background: dodgerblue;
   color: #fff !important;
   text-transform: uppercase;
   padding: 15px 20px !important;
@@ -158,6 +158,51 @@ header .navbar .cta-btn a:hover {
   -webkit-box-shadow: 2px 0 30px -5px rgba(0, 0, 0, 0.2);
   box-shadow: 2px 0 30px -5px rgba(0, 0, 0, 0.2);
 }
+
+header .navbar .dropdown-menu {
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  -webkit-box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 30px 0px rgba(0, 0, 0, 0.2);
+  min-width: 13em;
+  margin-top: -10px;
+}
+
+header .navbar .dropdown-menu:before {
+  bottom: 100%;
+  left: 10%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #fff;
+  border-width: 7px;
+}
+
+@media (max-width: 991px) {
+  header .navbar .dropdown-menu:before {
+    display: none;
+  }
+}
+
+header .navbar .dropdown-menu .dropdown-item:hover {
+  background: white;
+  color: #fff;
+}
+
+header .navbar .dropdown-menu .dropdown-item.active {
+  background: white;
+  color: #fff;
+}
+
+header .navbar .dropdown-menu a {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
 
 .half .text, .half .image {
   width: 50%;
@@ -310,7 +355,7 @@ header .navbar .cta-btn a:hover {
 }
 
 .site-footer a {
-  color: text-primary;
+  color: dodgerblue;
   border-bottom: 1px solid transparent;
 }
 
