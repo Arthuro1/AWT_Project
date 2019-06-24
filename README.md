@@ -10,7 +10,7 @@ Start mongodb with the command `mongod` or `sudo mongod`
 
 ### start server
 
-Open the file directory /api in terminal and run the command `nodemon server`
+Open the file directory /backend_api in terminal and run the command `nodemon server`
 
 ### start react frontend
 
