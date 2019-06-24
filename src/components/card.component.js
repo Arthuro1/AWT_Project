@@ -4,7 +4,7 @@ import StarRatings from 'react-star-ratings';
 export default class Card extends Component {
     render() {
         return (
-            <div className="card mb-2">
+            <div className="card mb-2 sched d-block d-lg-flex text mx-2">
                 <img className="card-img-top"
                      src={this.props.infos.image}
                      alt="Card image cap"/>
@@ -29,7 +29,6 @@ export default class Card extends Component {
                             />
                     </div>
                 </div>
-
             </div>
         )
     }
