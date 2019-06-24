@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class Edit extends Component {
+export default class AboutUs extends Component {
     render() {
         return (
             <div>
-                <p>Welcome to Edit Component!!</p>
+                <p>Welcome to Index Component!!</p>
             </div>
         )
     }
