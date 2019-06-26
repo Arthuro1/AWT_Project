@@ -294,6 +294,10 @@ header .navbar .dropdown-menu a {
   background: #e3e3f9 !important;
 }
 
+.myBgimage{
+  background-image: url('./images/online classes.jpg');
+}
+
 .sched, .blog {
   display: block;
   background-color: #fff;

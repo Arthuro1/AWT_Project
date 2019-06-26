@@ -14,4 +14,4 @@ Open the file directory /api in terminal and run the command `nodemon server`
 
 ### start react frontend
 
-Open the root file directory of the project (AWT_Project) in terminal and run the command `npm start`
+Open the root file directory of the proj_ect (AWT_Project) in terminal and run the command `npm start`
