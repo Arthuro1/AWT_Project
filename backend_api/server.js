@@ -1,24 +1,36 @@
 const express = require('express');
-const app = express();
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const PORT = 4000;
 const cors = require('cors');
 const mongoose = require('mongoose');
-const config = require('./DB.js');
-const businessRoute = require('./business.route');
+const PORT = process.env.PORT || 5000;
+const passport = require("passport");
+const users = require("./routes/users");
 
+//Connect to database
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-    () => {console.log('Database is connected') },
-    err => { console.log('Can not connect to the database'+ err)}
-);
+mongoose.connect('mongodb://localhost/AWT_Project', { useNewUrlParser: true , useCreateIndex: true});
+const connection = mongoose.connection;
+connection.once('open', function() {
+    console.log("MongoDB database connection established successfully");
+});
+const app = express();
 
+//Middlewares
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('dev'));
+app.use(
+    bodyParser.urlencoded({
+        extended: false
+    })
+);
 app.use(bodyParser.json());
 
-app.use('/business', businessRoute);
+// Routes
+app.use('/users', require('./routes/users.js'));
 
-app.listen(PORT, function(){
-    console.log('Server is running on Port:',PORT);
+//Start the server
+app.listen(PORT, function() {
+    console.log(`Server is running on Port: ${PORT}`);
 });
+

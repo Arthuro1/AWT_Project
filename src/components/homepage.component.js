@@ -13,13 +13,14 @@ import good from '../images/good.png'
 import star from '../images/favourites.png'
 import meetup from '../images/meetup.png'
 import books from '../images/books.png'
-
+import Book from '../images/book.jpg'
 
 import Carousel from 'react-multi-carousel';
 import Card from "./card.component";
 import SectionTitle from "./sectionTitle.component";
 import Header from "./header.component";
 import Footer from "./footer.component";
+
 
 const responsive = {
     desktop: {
@@ -54,7 +55,7 @@ export default class Homepage extends Component {
                             <div className="carousel-item active">
                                 <img height="800px" className="d-block w-100" src={share} alt="First slide"/>
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h1>Expert Chefs</h1>
+                                    <h1>Lorem Ipsum</h1>
                                     <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque
                                         corrupti reiciendis.</p>
@@ -64,7 +65,7 @@ export default class Homepage extends Component {
                             <div className="carousel-item">
                                 <img height="800px" className="d-block w-100" src={group} alt="Second slide"/>
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h1>Delecious Food</h1>
+                                    <h1>Lorem Ipsum</h1>
                                     <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque
                                         corrupti reiciendis.</p>
@@ -74,6 +75,7 @@ export default class Homepage extends Component {
                             <div className="carousel-item">
                                 <img height="800px" className="d-block w-100 " src={junge} alt="Third slide"/>
                                 <div className="carousel-caption d-none d-md-block">
+                                    <h1>Lorem Ipsum</h1>
                                     <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                         Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque
                                         corrupti reiciendis.</p>
@@ -126,7 +128,7 @@ export default class Homepage extends Component {
                     </div>
                 </section>
 
-                <section className="section bg-light element-animate">
+                <section className="section bg-light">
 
                     <SectionTitle title="Top Books" backText="Top"/>
 
@@ -152,27 +154,27 @@ export default class Homepage extends Component {
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image: Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"}} />
+                                "                        card's content.", image: Book }}/>
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"}} />
+                                "                        card's content.", image: Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image: Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image: Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image: Book}} />
 
                     </Carousel>;
                 </section>
@@ -204,27 +206,27 @@ export default class Homepage extends Component {
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image: Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"}} />
+                                "                        card's content.", image:  Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"}} />
+                                "                        card's content.", image:  Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image:  Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image:  Book}} />
 
                         <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
                                 "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: "https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"}} />
+                                "                        card's content.", image:  Book}} />
                     </Carousel>;
                 </section>
 

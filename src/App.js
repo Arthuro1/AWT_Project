@@ -13,24 +13,29 @@ import MeetUp from './components/meetUp.component';
 import AboutUs from './components/aboutUs.component';
 import Login from "./components/login.component";
 import Homepage from "./components/homepage.component";
-
+import {createStore, applyMiddleware} from "redux";
+import {Provider} from "react-redux"
+import reduxThunk from "redux-thunk";
+import reducers from "./reducers"
 
 class App extends Component {
 
     render() {
         return (
-            <Router>
-                <div className="container-fluid">
+            <Provider store={createStore(reducers, {}, applyMiddleware(reduxThunk))}>
+                <Router>
+                    <div className="container-fluid">
 
-                    <Switch>
-                        <Route exact path='/' component={ Homepage } />
-                        <Route path='/login' component={ Login } />
-                        <Route path='/register' component={ Register } />
-                        <Route path='/meet_up' component={ MeetUp } />
-                        <Route path='/about_us' component={ AboutUs } />
-                    </Switch>
-                </div>
-            </Router>
+                        <Switch>
+                            <Route exact path='/' component={ Homepage } />
+                            <Route path='/login' component={ Login } />
+                            <Route path='/register' component={ Register } />
+                            <Route path='/meet_up' component={ MeetUp } />
+                            <Route path='/about_us' component={ AboutUs } />
+                        </Switch>
+                    </div>
+                </Router>
+            </Provider>
         );
     }
 }
