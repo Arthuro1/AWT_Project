@@ -8,10 +8,14 @@ Open the root file directory of the project (AWT_Project) in terminal and run th
 ### start mongodb 
 Start mongodb with the command `mongod` or `sudo mongod`
 
-### start server
+### start only server
 
-Open the file directory /api in terminal and run the command `nodemon server`
+Open the file directory /backend_api in terminal and run the command `nodemon server`
 
-### start react frontend
+### start only react frontend
 
-Open the root file directory of the proj_ect (AWT_Project) in terminal and run the command `npm start`
+Open the root file directory of the project (AWT_Project) in terminal and run the command `npm start`
+
+### start frontend and backend simultaneously
+
+Open the root file directory of the project (AWT_Project) in terminal and run the command `npm run start-dev`

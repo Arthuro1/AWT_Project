@@ -25,7 +25,8 @@ export default class AboutUs extends Component {
 
                 </section>
 
-                <div className="section container-fluid bg-light">
+                <div className="section container-fluid myBg">
+                    <SectionTitle title="About Us" backText="Us"/>
                     <div className="row">
                         <div className="col-lg-6">
 
@@ -42,7 +43,7 @@ export default class AboutUs extends Component {
                     </div>
                 </div>
 
-                <section className="section myBg">
+                <section className="section bg-light">
 
                     <SectionTitle title="Group Members" backText="Members"/>
                     <div className="container">
