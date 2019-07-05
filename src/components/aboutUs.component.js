@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+
 import Header from "./header.component";
 import Footer from "./footer.component";
-import image from '../images/online classes.jpg'
 import SectionTitle from "./sectionTitle.component";
+
+import paul from '../images/paul.jpeg';
+import shahrzad from '../images/shahrzad.jpg'
+import meijie from '../images/Meijie.jpg'
+import vidhu from '../images/Vidhu.jpg'
+import groupselfii from '../images/groupselfii.jpg'
 
 export default class AboutUs extends Component {
     render() {
@@ -26,11 +32,14 @@ export default class AboutUs extends Component {
                 </section>
 
                 <div className="section container-fluid myBg">
-                    <SectionTitle title="About Us" backText="Us"/>
+                    <SectionTitle title="GROUP #" backText=""/>
                     <div className="row">
-                        <div className="col-lg-6">
-
+                        <div className="col-lg-6 bg-transparent grouppic">
+                            <img height='900px' width='900px' src={groupselfii} alt="images"/>
                         </div>
+
+
+
 
                         <div className="col-lg-6 pl-2 pl-lg-5">
                             <h2 className="mb-5">History</h2>
@@ -45,81 +54,40 @@ export default class AboutUs extends Component {
 
                 <section className="section bg-light">
 
-                    <SectionTitle title="Group Members" backText="Members"/>
-                    <div className="container">
-                        <div className="row">
-                            <div className="major-caousel js-carousel-1 owl-carousel">
-                                <div>
-                                    <div className="media d-block media-custom text-center">
-                                        <a href="adoption-single.html"><img src="img/person_1.jpg"
-                                                                            alt="Image Placeholder"
-                                                                            className="img-fluid"/></a>
-                                        <div className="media-body">
-                                            <h3 className="mt-0 text-black">Mellisa Howard</h3>
-                                            <p className="lead">CEO, Co-Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="media d-block media-custom text-center">
-                                        <a href="adoption-single.html"><img src="img/person_2.jpg"
-                                                                            alt="Image Placeholder"
-                                                                            className="img-fluid"/></a>
-                                        <div className="media-body">
-                                            <h3 className="mt-0 text-black">Mike Richardson</h3>
-                                            <p className="lead">CEO, Co-Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="media d-block media-custom text-center">
-                                        <a href="adoption-single.html"><img src="img/person_3.jpg"
-                                                                            alt="Image Placeholder"
-                                                                            className="img-fluid"/></a>
-                                        <div className="media-body">
-                                            <h3 className="mt-0 text-black">Charles White</h3>
-                                            <p className="lead">CEO, Co-Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
+                    <SectionTitle title="Group Members" backText=""/>
 
-                                <div>
-                                    <div className="media d-block media-custom text-center">
-                                        <a href="adoption-single.html"><img src="img/person_1.jpg"
-                                                                            alt="Image Placeholder"
-                                                                            className="img-fluid"/></a>
-                                        <div className="media-body">
-                                            <h3 className="mt-0 text-black">Mellisa Howard</h3>
-                                            <p className="lead">CEO, Co-Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="media d-block media-custom text-center">
-                                        <a href="adoption-single.html"><img src="img/person_2.jpg"
-                                                                            alt="Image Placeholder"
-                                                                            className="img-fluid"/></a>
-                                        <div className="media-body">
-                                            <h3 className="mt-0 text-black">Mike Richardson</h3>
-                                            <p className="lead">CEO, Co-Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="media d-block media-custom text-center">
-                                        <a href="adoption-single.html"><img src="img/person_3.jpg"
-                                                                            alt="Image Placeholder"
-                                                                            className="img-fluid"/></a>
-                                        <div className="media-body">
-                                            <h3 className="mt-0 text-black">Charles White</h3>
-                                            <p className="lead">CEO, Co-Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
+                    <div className="box">
+                        <div className="card">
+                            <div className="imgBx">
+                                <img src={paul} alt="images"/>
                             </div>
-
+                            <div className="details">
+                                <h2>Paul Menteg<br/><span>Backend</span></h2>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <div className="imgBx">
+                                <img src={shahrzad} alt="images"/>
+                            </div>
+                            <div className="details">
+                                <h2>Shahrzad Amini<br/><span>Frontend </span></h2>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <div className="imgBx">
+                                <img src={meijie} alt="images"/>
+                            </div>
+                            <div className="details">
+                                <h2>Meigie Li<br/><span>Backend</span></h2>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <div className="imgBx">
+                                <img src={vidhu} alt="images"/>
+                            </div>
+                            <div className="details">
+                                <h2>Vidhya Vijayaraman<br/><span>Frontend</span></h2>
+                            </div>
                         </div>
                     </div>
 

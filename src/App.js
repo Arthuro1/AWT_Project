@@ -7,15 +7,18 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'react-multi-carousel/lib/styles.css';
 
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {createStore, applyMiddleware} from "redux";
+import {Provider} from "react-redux"
+import reduxThunk from "redux-thunk";
 
+import BookPageComponent from './components/bookPage.component'
+import Dashboard from './components/dashboard.component';
 import Register from './components/register.component';
 import MeetUp from './components/meetUp.component';
 import AboutUs from './components/aboutUs.component';
 import Login from "./components/login.component";
 import Homepage from "./components/homepage.component";
-import {createStore, applyMiddleware} from "redux";
-import {Provider} from "react-redux"
-import reduxThunk from "redux-thunk";
+
 import reducers from "./reducers"
 
 class App extends Component {
@@ -32,6 +35,8 @@ class App extends Component {
                             <Route path='/register' component={ Register } />
                             <Route path='/meet_up' component={ MeetUp } />
                             <Route path='/about_us' component={ AboutUs } />
+                            <Route exact path='/dashboard' component={ Dashboard } />
+                            <Route exact path='/dashboard/book' component={ BookPageComponent } />
                         </Switch>
                     </div>
                 </Router>

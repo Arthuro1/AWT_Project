@@ -1,2 +1,4 @@
 export const AUTH_REGISTER = 'AUTH_REGISTER';
 export const AUTH_ERROR = 'AUTH_ERROR';
+export const DATA_REQUEST_ERROR = 'DATA_REQUEST_ERROR';
+export const DATA_REQUEST = 'DATA_REQUEST';

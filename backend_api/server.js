@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/users', require('./routes/users.js'));
+app.use('/dashboard/books', require('./routes/books.js'));
 
 //Start the server
 app.listen(PORT, function() {

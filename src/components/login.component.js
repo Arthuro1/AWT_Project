@@ -18,7 +18,10 @@ class Login extends Component {
     async onSubmit(formData){
         console.log('on submit');
         console.log(formData);
-        await this.props.login(formData)
+        await this.props.logIn(formData);
+        if(!this.props.errorMessage){
+            this.props.history.push('/dashboard');
+        }
     }
     render() {
         const {handleSubmit} = this.props;
@@ -54,7 +57,7 @@ class Login extends Component {
                             <button className="fb" onClick={ this.props.onClick }><i className="fa fa-facebook" aria-hidden="true"></i></button>
                             <button className="tw" onClick={ this.props.onClick }><i className="fa fa-google" aria-hidden="true"></i></button>
                         </div>
-                        <a href='#'>Lost your password ?</a>
+
                     </div>
                 </div>
                 <Footer/>

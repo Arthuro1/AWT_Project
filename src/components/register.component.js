@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import Header from "./header.component";
-import {Field, reduxForm} from "redux-form";
-import CustomInput from "./customInput.component";
-import Footer from "./footer.component";
 import {compose} from "redux";
 import {connect} from "react-redux";
+import {Field, reduxForm} from "redux-form";
+import GoogleLogin from "react-google-login"
+import FacebookLogin from "react-facebook-login"
+
+import CustomInput from "./customInput.component";
+import Header from "./header.component";
+import Footer from "./footer.component";
 import * as actions from "../actions";
 import SectionTitle from "./sectionTitle.component";
 
@@ -16,7 +19,17 @@ class Register extends Component {
     async onSubmit(formData){
         console.log('on submit');
         console.log(formData);
-        await this.props.register(formData)
+        await this.props.register(formData);
+        if(!this.props.errorMessage){
+            this.props.history.push('/dashboard');
+        }
+    }
+    responseGoogle(res){
+        console.log('responseGoogle', res);
+    }
+
+    responseFacebook(res){
+        console.log('responseFacebook', res);
     }
 
     render() {
@@ -34,21 +47,11 @@ class Register extends Component {
                         <form onSubmit={handleSubmit(this.onSubmit)}>
                             <fieldset>
                                 <Field
-                                    name="firstName"
+                                    name="name"
                                     type="text"
-                                    id="firstName"
-                                    label="Firstname"
+                                    id="name"
+                                    label="Name"
                                     placeholder="e.g Paul"
-                                    component={CustomInput}
-                                />
-                            </fieldset>
-                            <fieldset>
-                                <Field
-                                    name="lastName"
-                                    type="text"
-                                    id="lastName"
-                                    label="Lastname"
-                                    placeholder="e.g Meteng"
                                     component={CustomInput}
                                 />
                             </fieldset>
@@ -81,8 +84,22 @@ class Register extends Component {
                             <button type="submit" className="btn btn-primary">Log In</button>
                         </form>
                         <div className='social-signin'>
-                            <button className="fb" onClick={ this.props.onClick }><i className="fa fa-facebook" aria-hidden="true"></i></button>
-                            <button className="gg" onClick={ this.props.onClick }><i className="fa fa-google" aria-hidden="true"></i></button>
+                            <FacebookLogin
+                                appId="637927660040610"
+                                autoLoad={true}
+                                textButton="Facebook"
+                                fields="name,email,picture"
+                                callback={this.responseFacebook}
+                                cssClass="fb"
+                            />
+
+                            <GoogleLogin
+                                clientId="934511799147-nkrh1n4getm2kpf5lntfthkkur1lvv7l.apps.googleusercontent.com"
+                                buttonText="Google"
+                                onSuccess={this.responseGoogle}
+                                onFailure={this.responseGoogle}
+                                calssName="gg"
+                            />
                         </div>
                     </div>
                 </div>

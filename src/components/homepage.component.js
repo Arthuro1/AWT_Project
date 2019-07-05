@@ -8,7 +8,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 import share from '../images/share.jpeg'
 import group from '../images/online classes.jpg'
-import junge from '../images/junge.jpg'
+import AWTCLASS2019  from '../images/AWTCLASS2019.jpg'
 import good from '../images/good.png'
 import star from '../images/favourites.png'
 import meetup from '../images/meetup.png'
@@ -73,7 +73,7 @@ export default class Homepage extends Component {
                                 </div>
                             </div>
                             <div className="carousel-item">
-                                <img height="800px" className="d-block w-100 " src={junge} alt="Third slide"/>
+                                <img height="800px" className="d-block w-100 " src={AWTCLASS2019} alt="Third slide"/>
                                 <div className="carousel-caption d-none d-md-block">
                                     <h1>Lorem Ipsum</h1>
                                     <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -128,107 +128,9 @@ export default class Homepage extends Component {
                     </div>
                 </section>
 
-                <section className="section bg-light">
-
-                    <SectionTitle title="Top Books" backText="Top"/>
-
-                    <Carousel centerMode={true} focusOnSelect={true}
-                              swipeable={false}
-                              draggable={false}
-                              showDots={true}
-                              responsive={responsive}
-                              ssr={true} // means to render carousel on server-side.
-                              slidesToSlide={2}
-                              infinite={true}
-                              autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                              autoPlaySpeed={1000}
-                              keyBoardControl={true}
-                              customTransition="all .5"
-                              transitionDuration={500}
-                              containerClass="carousel-container"
-                              removeArrowOnDeviceType={["tablet", "mobile"]}
-                              deviceType={this.props.deviceType}
-                              dotListClass="custom-dot-list-style"
-                              itemClass="carousel-item-padding-40-px"
-                    >
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: Book }}/>
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: Book}} />
-
-                    </Carousel>;
-                </section>
 
 
-                <section className="section myBg element-animate">
 
-                    <SectionTitle title="Lastest Added Books" backText="Latest"/>
-
-                    <Carousel centerMode={true} focusOnSelect={true}
-                              swipeable={false}
-                              draggable={false}
-                              showDots={true}
-                              responsive={responsive}
-                              ssr={true} // means to render carousel on server-side.
-                              slidesToSlide={2}
-                              infinite={true}
-                              autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                              autoPlaySpeed={1000}
-                              keyBoardControl={true}
-                              customTransition="all .5"
-                              transitionDuration={500}
-                              containerClass="carousel-container"
-                              removeArrowOnDeviceType={["tablet", "mobile"]}
-                              deviceType={this.props.deviceType}
-                              dotListClass="custom-dot-list-style"
-                              itemClass="carousel-item-padding-40-px"
-                    >
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image: Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image:  Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image:  Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image:  Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image:  Book}} />
-
-                        <Card infos={{title: "Card title", text: "Some quick example text to build on the card title\n" +
-                                "                        and make up the bulk of the\n" +
-                                "                        card's content.", image:  Book}} />
-                    </Carousel>;
-                </section>
 
                 <Footer/>
             </>

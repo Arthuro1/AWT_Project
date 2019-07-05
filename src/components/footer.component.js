@@ -7,10 +7,8 @@ export default class Footer extends Component {
                 <div className="container">
                     <div className="row mb-5">
                         <div className="col-md-4 mb-5">
-                            <h3>About Us</h3>
-                            <p className="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Voluptatibus et dolor blanditiis consequuntur ex voluptates perspiciatis omnis
-                                unde minima expedita.</p>
+                            <h3>Social Meida</h3>
+
                             <ul className="list-unstyled footer-link d-flex footer-social">
                                 <li><a href="#" className="p-2"><span className="fa fa-twitter"/></a></li>
                                 <li><a href="#" className="p-2"><span className="fa fa-facebook"/></a>
@@ -28,10 +26,10 @@ export default class Footer extends Component {
                         <div className="col-md-3 mb-5">
                             <h3>Quick Links</h3>
                             <ul className="list-unstyled footer-link">
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms of Use</a></li>
-                                <li><a href="#">Disclaimers</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href={'/About_Us'}>About</a></li>
+                                <li><a href={'/Login'}>Login</a></li>
+                                <li><a href={'/Register'}>Registration</a></li>
+
                             </ul>
                         </div>
                         <div className="col-md-3">
@@ -42,7 +40,7 @@ export default class Footer extends Component {
                         <div className="col-12 text-md-center text-left">
                             <p>Copyright &copy; {new Date().getFullYear()} All rights reserved | This Project was made with { " "}
                                 <i className="fa fa-heart" aria-hidden="true"/> within the scope of the lecture <a
-                                    href="#" target="_blank">Advanced Web Technology</a>
+                                    href="https://www.uni-due.de/soco/teaching/courses/lecture-advwebtech-ss19.php" target="_blank">Advanced Web Technology</a>
                             </p>
                         </div>
                     </div>

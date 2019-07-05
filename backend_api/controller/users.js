@@ -11,6 +11,8 @@ const {JWT_SECRET} = require('../config/keys');
     }, JWT_SECRET);
 };
 
+
+
 module.exports = {
     register: async (req, res, next) => {
         const {name, email, password} = req.value.body;
@@ -20,7 +22,7 @@ module.exports = {
             return res.status(403).json({error: 'Email is already in use.'})
         }
 
-        const newUser = new User({method:'local', local: {name, email, password}});
+        const newUser = new User({method:'local', local: {name, email, password}, imageUrl: "", commentIds: []});
         await newUser.save();
 
         const token = signToken(newUser);
@@ -29,6 +31,7 @@ module.exports = {
     },
 
     logIn: async (req, res, next) => {
+        console.log(req.user);
         const token = signToken(req.user);
         res.status(200).json({token});
     },
