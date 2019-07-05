@@ -10,6 +10,7 @@ import Header from "./header.component";
 import Footer from "./footer.component";
 import * as actions from "../actions";
 import SectionTitle from "./sectionTitle.component";
+import brand from "../images/hash.png";
 
 class Register extends Component {
     constructor(props) {
@@ -24,13 +25,6 @@ class Register extends Component {
             this.props.history.push('/dashboard');
         }
     }
-    responseGoogle(res){
-        console.log('responseGoogle', res);
-    }
-
-    responseFacebook(res){
-        console.log('responseFacebook', res);
-    }
 
     render() {
         const {handleSubmit} = this.props;
@@ -38,20 +32,21 @@ class Register extends Component {
             <div>
                 <Header/>
                 <div className="section myBg container-fluid">
-                    <SectionTitle title="Get Started" backText="Register"/>
                     <div className="container Modal">
-                        <div className="logo">
-                        <i className="fa fa-hashtag" aria-hidden="true"></i>
-                        <span>  </span>
-                        </div>
+
+
                         <form onSubmit={handleSubmit(this.onSubmit)}>
+                            <div className="logo">
+                                <img height="90" src={brand} alt="logo"/>
+                                <span>Bookiz</span>
+                            </div>
                             <fieldset>
                                 <Field
                                     name="name"
                                     type="text"
                                     id="name"
                                     label="Name"
-                                    placeholder="e.g Paul"
+                                    placeholder="e.g Paul Meteng"
                                     component={CustomInput}
                                 />
                             </fieldset>
@@ -81,26 +76,8 @@ class Register extends Component {
                                 {this.props.errorMessage}
                             </div>: null}
 
-                            <button type="submit" className="btn btn-primary">Log In</button>
+                            <button type="submit" className="btn btn-primary">register</button>
                         </form>
-                        <div className='social-signin'>
-                            <FacebookLogin
-                                appId="637927660040610"
-                                autoLoad={true}
-                                textButton="Facebook"
-                                fields="name,email,picture"
-                                callback={this.responseFacebook}
-                                cssClass="fb"
-                            />
-
-                            <GoogleLogin
-                                clientId="934511799147-nkrh1n4getm2kpf5lntfthkkur1lvv7l.apps.googleusercontent.com"
-                                buttonText="Google"
-                                onSuccess={this.responseGoogle}
-                                onFailure={this.responseGoogle}
-                                calssName="gg"
-                            />
-                        </div>
                     </div>
                 </div>
                 <Footer/>

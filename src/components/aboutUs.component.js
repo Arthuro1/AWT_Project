@@ -35,7 +35,7 @@ export default class AboutUs extends Component {
                     <SectionTitle title="GROUP #" backText=""/>
                     <div className="row">
                         <div className="col-lg-6 bg-transparent grouppic">
-                            <img height='900px' width='900px' src={groupselfii} alt="images"/>
+                            <img height='90%' width='95%' src={groupselfii} alt="images"/>
                         </div>
 
 
@@ -62,7 +62,7 @@ export default class AboutUs extends Component {
                                 <img src={paul} alt="images"/>
                             </div>
                             <div className="details">
-                                <h2>Paul Menteg<br/><span>Backend</span></h2>
+                                <h2>Paul Meteng<br/><span>Frontend & Backend</span></h2>
                             </div>
                         </div>
                         <div className="card">
@@ -70,7 +70,7 @@ export default class AboutUs extends Component {
                                 <img src={shahrzad} alt="images"/>
                             </div>
                             <div className="details">
-                                <h2>Shahrzad Amini<br/><span>Frontend </span></h2>
+                                <h2>Shahrzad Amini<br/><span>Frontend</span></h2>
                             </div>
                         </div>
                         <div className="card">
@@ -78,7 +78,7 @@ export default class AboutUs extends Component {
                                 <img src={meijie} alt="images"/>
                             </div>
                             <div className="details">
-                                <h2>Meigie Li<br/><span>Backend</span></h2>
+                                <h2>Meijie Li<br/><span>Backend</span></h2>
                             </div>
                         </div>
                         <div className="card">

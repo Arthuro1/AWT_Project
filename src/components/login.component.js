@@ -7,6 +7,7 @@ import * as actions from '../actions'
 import CustomInput from './customInput.component'
 import Header from "./header.component";
 import Footer from "./footer.component";
+import brand from "../images/hash.png";
 
 
 class Login extends Component {
@@ -28,15 +29,19 @@ class Login extends Component {
         return (
             <div>
                 <Header/>
-                <div className="section bg-light container-fluid">
-                    <div className="Modal">
+                <div className="section myBg container-fluid">
+                    <div className="Modal container">
+                        <div className="logo">
+                            <img height="90" src={brand} alt="logo"/>
+                            <span>Bookiz</span>
+                        </div>
                         <form onSubmit={handleSubmit(this.onSubmit)}>
                             <fieldset>
                                 <Field
                                     name="email"
                                     type="text"
                                     id="email"
-                                    label="Enter your email"
+                                    label="Email"
                                     placeholder="example@example.com"
                                     component={CustomInput}
                                 />
@@ -46,18 +51,13 @@ class Login extends Component {
                                     name="password"
                                     type="password"
                                     id="password"
-                                    label="Enter your password"
+                                    label="Password"
                                     placeholder="password"
                                     component={CustomInput}
                                 />
                             </fieldset>
                             <button type="submit" className="btn btn-primary">Log In</button>
                         </form>
-                        <div className='social-signin'>
-                            <button className="fb" onClick={ this.props.onClick }><i className="fa fa-facebook" aria-hidden="true"></i></button>
-                            <button className="tw" onClick={ this.props.onClick }><i className="fa fa-google" aria-hidden="true"></i></button>
-                        </div>
-
                     </div>
                 </div>
                 <Footer/>
