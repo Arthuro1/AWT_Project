@@ -4,9 +4,9 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 
 import * as actions from '../actions'
-import CustomInput from './customInput.component'
-import Header from "./header.component";
-import Footer from "./footer.component";
+import CustomInput from './customInput'
+import Header from "./header";
+import Footer from "./footer";
 import brand from "../images/hash.png";
 
 
@@ -21,6 +21,7 @@ class Login extends Component {
         console.log(formData);
         await this.props.logIn(formData);
         if(!this.props.errorMessage){
+            console.log('go to dashboard');
             this.props.history.push('/dashboard');
         }
     }
@@ -28,7 +29,7 @@ class Login extends Component {
         const {handleSubmit} = this.props;
         return (
             <div>
-                <Header/>
+                <Header />
                 <div className="section myBg container-fluid">
                     <div className="Modal container">
                         <div className="logo">

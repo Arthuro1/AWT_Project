@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
+
 import brand from "../images/hash.png";
 
+import HeaderDropdownMenu from "./headerDropdownMenu";
+
 export default class Header extends Component {
+    constructor(props){
+        super(props);
+        this.logOut = this.logOut.bind(this);
+    }
+
+    logOut () {
+        console.log("log out called");
+        this.props.logOut();
+    }
+
     render() {
         return (
             <header role="banner">
@@ -23,19 +36,13 @@ export default class Header extends Component {
                                     <Link to={'/'} className="nav-link"> <i className="fa fa-home"></i> Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={'/meet_up'} className="nav-link"> <i className="fa fa-meetup"></i> Meet Up</Link>
-                                </li>
-                                <li className="nav-item">
                                     <Link to={'/about_us'} className="nav-link"> <i className="fa fa-address-card"/> About Us</Link>
                                 </li>
                             </ul>
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item cta-btn dropdown">
                                     <Link to={''} className="nav-link dropdown-toggle btn btn-primary" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i className="fa fa-user"/> My Account</Link>
-                                    <div className="dropdown-menu" aria-labelledby="dropdown04">
-                                        <a className="dropdown-item" href="/login"><i
-                                            className="fa fa-sign-in"/>{"  "}LogIn</a>
-                                    </div>
+                                    <HeaderDropdownMenu />
                                 </li>
                             </ul>
                         </div>
@@ -45,3 +52,4 @@ export default class Header extends Component {
         )
     }
 }
+

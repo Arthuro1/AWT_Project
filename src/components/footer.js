@@ -10,12 +10,12 @@ export default class Footer extends Component {
                             <h3>Social Meida</h3>
 
                             <ul className="list-unstyled footer-link d-flex footer-social">
-                                <li><a href="#" className="p-2"><span className="fa fa-twitter"/></a></li>
-                                <li><a href="#" className="p-2"><span className="fa fa-facebook"/></a>
+                                <li><a href="https://twitter.com/" className="p-2"><span className="fa fa-twitter"/></a></li>
+                                <li><a href="https://www.facebook.com" className="p-2"><span className="fa fa-facebook"/></a>
                                 </li>
-                                <li><a href="#" className="p-2"><span className="fa fa-linkedin"/></a>
+                                <li><a href="https://www.linkedin.com" className="p-2"><span className="fa fa-linkedin"/></a>
                                 </li>
-                                <li><a href="#" className="p-2"><span className="fa fa-instagram"/></a>
+                                <li><a href="https://www.instagram.com/" className="p-2"><span className="fa fa-instagram"/></a>
                                 </li>
                             </ul>
 
@@ -40,7 +40,7 @@ export default class Footer extends Component {
                         <div className="col-12 text-md-center text-left">
                             <p>Copyright &copy; {new Date().getFullYear()} All rights reserved | This Project was made with { " "}
                                 <i className="fa fa-heart" aria-hidden="true"/> within the scope of the lecture <a
-                                    href="https://www.uni-due.de/soco/teaching/courses/lecture-advwebtech-ss19.php" target="_blank">Advanced Web Technology</a>
+                                    href="https://www.uni-due.de/soco/teaching/courses/lecture-advwebtech-ss19.php" rel="noopener noreferrer" target="_blank">Advanced Web Technology</a>
                             </p>
                         </div>
                     </div>

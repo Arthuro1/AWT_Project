@@ -5,11 +5,11 @@ import {ReactSpinner} from 'react-spinning-wheel';
 import 'react-spinning-wheel/dist/style.css';
 
 import * as actions from '../actions'
-import Header from "./header.component";
-import Footer from "./footer.component";
-import SectionTitle from "./sectionTitle.component";
+import Header from "./header";
+import Footer from "./footer";
+import SectionTitle from "./sectionTitle";
 import Carousel from "react-multi-carousel";
-import Card from "./card.component";
+import Card from "./card";
 
 const responsive = {
     desktop: {
@@ -47,7 +47,9 @@ class Dashboard extends Component {
     };
 
      componentWillMount() {
-         this.props.getDataFromDb();
+         if(this.props.isAuthentificated){
+             this.props.getDataFromDb();
+         }
     }
 
 
@@ -58,7 +60,6 @@ class Dashboard extends Component {
             if (!array[0]) {
                 component = wheel();
             } else {
-                console.log("Author", this.props.data[1].author);
                 component = <Carousel centerMode={true} focusOnSelect={true}
                                       swipeable={false}
                                       draggable={false}
@@ -67,7 +68,7 @@ class Dashboard extends Component {
                                       ssr={true} // means to render carousel on server-side.
                                       slidesToSlide={2}
                                       infinite={true}
-                                      autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                                      autoPlay={false}
                                       autoPlaySpeed={2000}
                                       keyBoardControl={true}
                                       customTransition="all .5"
@@ -82,9 +83,9 @@ class Dashboard extends Component {
                     <Card infos={{author: this.props.data[0].authors[0], numberOfVoters: this.props.data[0].size, title: this.props.data[0].title, text: this.props.data[0].description, image: this.props.data[0].thumbnail, rating: this.props.data[0].rating.average}} />
                     <Card infos={{author: this.props.data[1].authors[0], numberOfVoters: this.props.data[1].size, title: this.props.data[1].title, text: this.props.data[1].description, image: this.props.data[1].thumbnail, rating: this.props.data[1].rating.average}} />
                     <Card infos={{author: this.props.data[2].authors[0], numberOfVoters: this.props.data[2].size, title: this.props.data[2].title, text: this.props.data[2].description, image: this.props.data[2].thumbnail, rating: this.props.data[2].rating.average}} />
-                    <Card infos={{author: this.props.data[3].authors[3], numberOfVoters: this.props.data[3].size, title: this.props.data[3].title, text: this.props.data[3].description, image: this.props.data[3].thumbnail, rating: this.props.data[3].rating.average}} />
-                    <Card infos={{author: this.props.data[2].authors[4], numberOfVoters: this.props.data[4].size, title: this.props.data[4].title, text: this.props.data[4].description, image: this.props.data[4].thumbnail, rating: this.props.data[4].rating.average}} />
-                    <Card infos={{author: this.props.data[2].authors[5], numberOfVoters: this.props.data[5].size, title: this.props.data[5].title, text: this.props.data[5].description, image: this.props.data[5].thumbnail, rating: this.props.data[5].rating.average}} />
+                    <Card infos={{author: this.props.data[3].authors[0], numberOfVoters: this.props.data[3].size, title: this.props.data[3].title, text: this.props.data[3].description, image: this.props.data[3].thumbnail, rating: this.props.data[3].rating.average}} />
+                    <Card infos={{author: this.props.data[2].authors[0], numberOfVoters: this.props.data[4].size, title: this.props.data[4].title, text: this.props.data[4].description, image: this.props.data[4].thumbnail, rating: this.props.data[4].rating.average}} />
+                    <Card infos={{author: this.props.data[2].authors[0], numberOfVoters: this.props.data[5].size, title: this.props.data[5].title, text: this.props.data[5].description, image: this.props.data[5].thumbnail, rating: this.props.data[5].rating.average}} />
 
                 </Carousel>;
             }
@@ -105,6 +106,7 @@ class Dashboard extends Component {
 
 function mapStateToProps(state){
     return {
+        isAuthentificated: state.auth.isAuthentificated,
         data: state.dataRequest.data,
         errorMessage: state.dataRequest.errorMessage
     }

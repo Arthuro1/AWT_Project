@@ -3,12 +3,11 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import * as actions from "../actions";
 import {reduxForm} from "redux-form";
-import Header from "./header.component";
-import SectionTitle from "./sectionTitle.component";
-import Footer from "./footer.component";
+import Header from "./header";
+import Footer from "./footer";
 import Book from "../images/book.jpg";
 
-class BookPageComponent extends Component {
+class BookPage extends Component {
 
 
     render() {
@@ -36,7 +35,7 @@ class BookPageComponent extends Component {
                             </div>
                         </div>
                     </div>
-            </section>
+                </section>
 
                 <Footer/>
             </div>
@@ -53,4 +52,4 @@ function mapStateToProps(state){
 export default compose(
     connect(mapStateToProps, actions),
     reduxForm()
-)(BookPageComponent)
+)(BookPage)

@@ -27,13 +27,16 @@ module.exports = {
 
         const token = signToken(newUser);
 
-        res.status(200).json({token});
+        res.status(200).json({token, user:newUser});
     },
 
     logIn: async (req, res, next) => {
-        console.log(req.user);
+        const user = {
+            name: req.user.local.name,
+            email: req.user.local.email,
+        };
         const token = signToken(req.user);
-        res.status(200).json({token});
+        res.status(200).json({token, user});
     },
 
     secret: async (req, res, next) => {

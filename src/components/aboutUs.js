@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Header from "./header.component";
-import Footer from "./footer.component";
-import SectionTitle from "./sectionTitle.component";
+import Header from "./header";
+import Footer from "./footer";
+import SectionTitle from "./sectionTitle";
 
 import paul from '../images/paul.jpeg';
 import shahrzad from '../images/shahrzad.jpg'
@@ -54,7 +54,7 @@ export default class AboutUs extends Component {
 
                 <section className="section bg-light">
 
-                    <SectionTitle title="Group Members" backText=""/>
+                    <SectionTitle title="Group Members" backText="Members"/>
 
                     <div className="box">
                         <div className="card">

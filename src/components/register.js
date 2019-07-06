@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {Field, reduxForm} from "redux-form";
-import GoogleLogin from "react-google-login"
-import FacebookLogin from "react-facebook-login"
 
-import CustomInput from "./customInput.component";
-import Header from "./header.component";
-import Footer from "./footer.component";
+import CustomInput from "./customInput";
+import Header from "./header";
+import Footer from "./footer";
 import * as actions from "../actions";
-import SectionTitle from "./sectionTitle.component";
+
 import brand from "../images/hash.png";
 
 class Register extends Component {
@@ -22,8 +20,10 @@ class Register extends Component {
         console.log(formData);
         await this.props.register(formData);
         if(!this.props.errorMessage){
+            console.log(" no error");
             this.props.history.push('/dashboard');
         }
+        console.log("error");
     }
 
     render() {
@@ -33,7 +33,6 @@ class Register extends Component {
                 <Header/>
                 <div className="section myBg container-fluid">
                     <div className="container Modal">
-
 
                         <form onSubmit={handleSubmit(this.onSubmit)}>
                             <div className="logo">
@@ -76,7 +75,7 @@ class Register extends Component {
                                 {this.props.errorMessage}
                             </div>: null}
 
-                            <button type="submit" className="btn btn-primary">register</button>
+                            <button type="submit" className="cta-btn btn btn-primary">register</button>
                         </form>
                     </div>
                 </div>
@@ -88,7 +87,8 @@ class Register extends Component {
 
 function mapStateToProps(state){
     return {
-        errorMessage: state.auth.errorMessage
+        errorMessage: state.auth.errorMessage,
+        isAuthentificated: state.auth.isAuthentificated
     }
 }
 
