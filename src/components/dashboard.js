@@ -10,6 +10,7 @@ import Footer from "./footer";
 import SectionTitle from "./sectionTitle";
 import Carousel from "react-multi-carousel";
 import Card from "./card";
+import DropdownLecture from "./dropdowns";
 
 const responsive = {
     desktop: {
@@ -92,6 +93,9 @@ class Dashboard extends Component {
         return (
             <div>
                 <Header/>
+                <section className="section myBg">
+                    <DropdownLecture/>
+                </section>
 
                 <section className="section bg-light">
                     <SectionTitle title="Top Books" backText="Top"/>

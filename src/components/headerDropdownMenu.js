@@ -54,7 +54,7 @@ class HeaderDropdownMenu extends Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <p>
-                                    <a href="/profile" className="dropdown-item"><i className="fa fa-address-card "/>{"  "}My Profile</a>
+                                    <a href="/dashboard" className="dropdown-item"><i className="fa fa-address-card "/>{"  "}My Profile</a>
                                     <a href="/change_password" className="dropdown-item"><i className="fa fa-undo"/>{"  "}Change Password</a>
                                 </p>
                             </div>

@@ -17,4 +17,8 @@ router.route('/top-rated-books')
 
 router.route('/most-popular-books')
     .get(BookController.mostPopularBooks);
+
+router.route('/search-by-lecture')
+    .get(BookController.searchByLecture);
+
 module.exports = router;

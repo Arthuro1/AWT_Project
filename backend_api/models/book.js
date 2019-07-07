@@ -10,6 +10,10 @@ const bookSchema = new Schema({
         type: String,
     },
 
+    lecture: {
+        type: String,
+    },
+
     authors: [
 
     ],

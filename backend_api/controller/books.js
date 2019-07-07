@@ -17,7 +17,7 @@ let options = {
 module.exports = {
 
     search: async (req, res, next) => {
-        console.log('Meiji function called');
+        console.log('search function called');
 
         books.search(req.body.lecture, options, function(error, results, apiResponse) {
             if ( ! error ) {
@@ -26,7 +26,7 @@ module.exports = {
                    const bookFound = await Book.findOne({'id': book.id});
 
                    if(!bookFound){
-                       const newBook = new Book({title: book.title, subtitle: book.subtitle?book.subtitle:"", authors: book.authors, publisher: book.publisher, publishedDate: book.publishedDate, description: book.description?book.description:"", pageCount:book.pageCount, link: book.link, id: book.id, thumbnail: book.thumbnail, language: book.language, rating:{average: 0, sum: 0, idsOfVoter: []}, commentIds: []});
+                       const newBook = new Book({lecture:req.body.lecture, title: book.title, subtitle: book.subtitle?book.subtitle:"", authors: book.authors, publisher: book.publisher, publishedDate: book.publishedDate, description: book.description?book.description:"", pageCount:book.pageCount, link: book.link, id: book.id, thumbnail: book.thumbnail, language: book.language, rating:{average: 0, sum: 0, idsOfVoter: []}, commentIds: []});
                        await newBook.save();
                    }
 
@@ -110,6 +110,46 @@ module.exports = {
         }else{
             res.status(200).send("no top rated book found");
         }
+    },
+
+    searchByLecture: async (req, res, next) => {
+        const filter = req.body.filter;
+            if (filter === "Best Ratings") {
+
+                await Book.find({lecture: req.body.lecture}).sort({'rating.average': -1}).limit(10).exec(function (err, result) {
+                    console.log("filter: Best Ratings");
+                    if (!err) res.status(200).send(result);
+                    else res.send(err);
+                });
+
+            } else if (filter === "Most Rated") {
+
+                Book.aggregate([
+                    {
+                        $project: {
+                            authors: 1,
+                            title: 1,
+                            description: 1,
+                            thumbnail: 1,
+                            rating: 1,
+                            size: {$size: '$rating.idsOfVoter'}
+                        }
+                    }
+                ]).sort({size: -1}).limit(6).exec(function (err, result) {
+                    console.log("filter: Most rated");
+                    if (!err) res.status(200).send(result);
+                    else res.send(err);
+                });
+
+            } else {
+                console.log("no filter set");
+                await Book.find({lecture: req.body.lecture}).exec(function (err, result) {
+                    console.log("no filter set");
+                    if (!err) res.status(200).send(result);
+                    else res.send(err);
+                });
+            }
+
     },
 
     mostPopularBooks: async (req, res, next) => {

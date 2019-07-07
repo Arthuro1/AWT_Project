@@ -658,3 +658,8 @@ form button {
 .fa-passwd-reset > .fa-lock {
 
 }
+
+.dropDownColor{
+  color: white !important;
+  background: dodgerblue !important;
+}

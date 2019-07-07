@@ -4,3 +4,4 @@ export const AUTH_LOG_IN = 'AUTH_LOG_IN';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const DATA_REQUEST_ERROR = 'DATA_REQUEST_ERROR';
 export const DATA_REQUEST = 'DATA_REQUEST';
+export const FILTER_SELECTED = 'FILTER_SELECTED';

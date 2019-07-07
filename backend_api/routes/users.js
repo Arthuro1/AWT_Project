@@ -25,6 +25,6 @@ router.route('/oauth/google')
 router.route('/oauth/facebook')
     .post(passportAutthentification ('facebookToken', false), UserController.facebookOAuth);
 
-
-
+router.route('/comment')
+    .post(passportAutthentification ('jwt', false), UserController.comment);
 module.exports = router;
