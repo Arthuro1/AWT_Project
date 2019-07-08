@@ -59,6 +59,9 @@ const bookSchema = new Schema({
         idsOfVoter:[
 
         ],
+        numberOfVoters:{
+            type: Number,
+        }
     },
 
     language: {

@@ -16,6 +16,7 @@ export default (state = DEFAULT_STATE, action) => {
         case AUTH_LOG_OUT:
             return {...state, user:{}, token: action.payload.token, isAuthentificated: false, errorMessage: ''};
         case AUTH_ERROR:
+            console.log("got some Error during authentification", action.payload);
             return {...state, errorMessage: action.payload};
         default:
             return state

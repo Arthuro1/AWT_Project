@@ -17,8 +17,9 @@ class Lectures extends Component{
         this.getLecture = this.getLecture.bind(this);
     }
 
-    getLecture(event, data){
-        this.props.searchForLecture({filter: this.props.selectedFilter, data});
+    async getLecture(event, data){
+        console.log('selected lecture',data.value);
+        await this.props.searchForLecture({filter: this.props.selectedFilter, lecture: data.value});
     }
 
     render(){
@@ -29,9 +30,9 @@ class Lectures extends Component{
                 floating
                 labeled
                 fluid
+                selection
                 icon='book'
                 options={lectureOptions}
-                search
                 text='Select Lecture'
             />
         );

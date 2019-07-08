@@ -56,7 +56,41 @@ class Dashboard extends Component {
 
         render() {
             const array = this.props.data;
+            const booksResult = this.props.searchResults;
             let component ;
+            let bookComponent;
+
+            if(!booksResult[0]){
+                bookComponent = wheel();
+            }else{
+                bookComponent = <Carousel centerMode={true} focusOnSelect={true}
+                                          swipeable={false}
+                                          draggable={false}
+                                          showDots={true}
+                                          responsive={responsive}
+                                          ssr={true} // means to render carousel on server-side.
+                                          slidesToSlide={2}
+                                          infinite={true}
+                                          autoPlay={false}
+                                          autoPlaySpeed={2000}
+                                          keyBoardControl={true}
+                                          customTransition="all .5"
+                                          transitionDuration={2000}
+                                          containerClass="carousel-container"
+                                          removeArrowOnDeviceType={["tablet", "mobile"]}
+                                          deviceType={this.props.deviceType}
+                                          dotListClass="custom-dot-list-style"
+                                          itemClass="carousel-item-padding-40-px"
+                >
+                    <Card data={this.props.searchResults[0]} />
+                    <Card data={this.props.searchResults[1]} />
+                    <Card data={this.props.searchResults[2]} />
+                    <Card data={this.props.searchResults[3]} />
+                    <Card data={this.props.searchResults[4]} />
+                    <Card data={this.props.searchResults[5]} />
+
+                </Carousel>;
+            }
 
             if (!array[0]) {
                 component = wheel();
@@ -80,14 +114,12 @@ class Dashboard extends Component {
                                       dotListClass="custom-dot-list-style"
                                       itemClass="carousel-item-padding-40-px"
                 >
-
-                    <Card infos={{author: this.props.data[0].authors[0], numberOfVoters: this.props.data[0].size, title: this.props.data[0].title, text: this.props.data[0].description, image: this.props.data[0].thumbnail, rating: this.props.data[0].rating.average}} />
-                    <Card infos={{author: this.props.data[1].authors[0], numberOfVoters: this.props.data[1].size, title: this.props.data[1].title, text: this.props.data[1].description, image: this.props.data[1].thumbnail, rating: this.props.data[1].rating.average}} />
-                    <Card infos={{author: this.props.data[2].authors[0], numberOfVoters: this.props.data[2].size, title: this.props.data[2].title, text: this.props.data[2].description, image: this.props.data[2].thumbnail, rating: this.props.data[2].rating.average}} />
-                    <Card infos={{author: this.props.data[3].authors[0], numberOfVoters: this.props.data[3].size, title: this.props.data[3].title, text: this.props.data[3].description, image: this.props.data[3].thumbnail, rating: this.props.data[3].rating.average}} />
-                    <Card infos={{author: this.props.data[2].authors[0], numberOfVoters: this.props.data[4].size, title: this.props.data[4].title, text: this.props.data[4].description, image: this.props.data[4].thumbnail, rating: this.props.data[4].rating.average}} />
-                    <Card infos={{author: this.props.data[2].authors[0], numberOfVoters: this.props.data[5].size, title: this.props.data[5].title, text: this.props.data[5].description, image: this.props.data[5].thumbnail, rating: this.props.data[5].rating.average}} />
-
+                    <Card data={this.props.data[0]} />
+                    <Card data={this.props.data[1]} />
+                    <Card data={this.props.data[2]} />
+                    <Card data={this.props.data[3]} />
+                    <Card data={this.props.data[4]} />
+                    <Card data={this.props.data[5]} />
                 </Carousel>;
             }
         return (
@@ -96,7 +128,9 @@ class Dashboard extends Component {
                 <section className="section myBg">
                     <DropdownLecture/>
                 </section>
-
+                <section className="myBg">
+                    {bookComponent}
+                </section>
                 <section className="section bg-light">
                     <SectionTitle title="Top Books" backText="Top"/>
                     {component}
@@ -112,6 +146,7 @@ function mapStateToProps(state){
     return {
         isAuthentificated: state.auth.isAuthentificated,
         data: state.dataRequest.data,
+        searchResults: state.search.data,
         errorMessage: state.dataRequest.errorMessage
     }
 }

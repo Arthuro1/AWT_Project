@@ -3,6 +3,7 @@ import {Dropdown} from "semantic-ui-react";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import * as actions from "../actions";
+import mapStateToProps from "react-redux/es/connect/mapStateToProps";
 
 class Filter extends Component{
     constructor(props){
@@ -15,7 +16,15 @@ class Filter extends Component{
     }
     render(){
         return(
-            <Dropdown text='Filter' onChange={this.getFilter} icon='filter' fluid floating labeled button className='icon dropDownColor'>
+            <Dropdown
+                text='Filter'
+                onChange={this.getFilter}
+                icon='filter'
+                fluid
+                floating
+                labeled
+                button
+                className='icon dropDownColor'>
                 <Dropdown.Menu>
                     <Dropdown.Header icon='tags' content='Filter by tag' />
                     <Dropdown.Item onClick={this.getFilter}>Best Ratings</Dropdown.Item>

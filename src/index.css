@@ -663,3 +663,8 @@ form button {
   color: white !important;
   background: dodgerblue !important;
 }
+
+.cardSize{
+  max-width: 60% !important;
+  height: 90% !important;
+}

@@ -7,7 +7,7 @@ class SetRating extends Component
 state = {
 rating:0
 
-}
+};
 SetRating(value)
 {
     this.setState({ rating:value});

@@ -38,19 +38,16 @@ class App extends Component {
                 }
             }, applyMiddleware(reduxThunk))}>
                 <Router>
-                    <div className="container-fluid">
-
                         <Switch>
                             <Route exact path='/' component={ Homepage } />
                             <Route path='/login' component={ Login } />
                             <Route path='/register' component={ Register } />
                             <Route path='/about_us' component={ AboutUs } />
                             <Route exact path='/dashboard' component={ AuthGuard(Dashboard)} />
-                            <Route exact path='/dashboard/book' component={ BookPageComponent }/>
+                            <Route exact path='/book' component={ BookPageComponent }/>
                             <Route path ='/profile' component={ Profile }/>
                             <Route path='/change_password' component={ BookPageComponent }/>
                         </Switch>
-                    </div>
                 </Router>
             </Provider>
         );

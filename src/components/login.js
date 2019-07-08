@@ -57,6 +57,13 @@ class Login extends Component {
                                     component={CustomInput}
                                 />
                             </fieldset>
+
+                            {this.props.errorMessage?
+                                <div className="alert alert-danger">
+                                    {this.props.errorMessage}
+                                </div>: null
+                            }
+
                             <button type="submit" className="btn btn-primary">Log In</button>
                         </form>
                     </div>
@@ -67,7 +74,13 @@ class Login extends Component {
     }
 }
 
+function mapStateToProps(state){
+    return {
+        errorMessage: state.auth.errorMessage,
+    }
+}
+
 export default compose(
-    connect(null, actions),
+    connect(mapStateToProps, actions),
     reduxForm({form: 'logIn'})
 )(Login)

@@ -3,8 +3,8 @@ const router = require('express-promise-router')();
 const BookController = require('../controller/books');
 
 
-router.route('/search')
-    .post(BookController.search);
+router.route('/addBooks')
+    .post(BookController.addBooks);
 
 router.route('/comment')
     .post(BookController.comment);
@@ -19,6 +19,6 @@ router.route('/most-popular-books')
     .get(BookController.mostPopularBooks);
 
 router.route('/search-by-lecture')
-    .get(BookController.searchByLecture);
+    .post(BookController.searchByLecture);
 
 module.exports = router;

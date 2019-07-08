@@ -70,20 +70,32 @@ module.exports = {
         res.json({secret: "ressource"})
     },
 
-    comment: async (req, res, next) => {
-        console.log('comment function called');
-        const {author, message, commentedBook} = req.body;
+    postComment: async (req, res, next) => {
+        console.log('post comment function called');
+        const {authorID, message, bookID} = req.body;
         const newComment = new Comment({
             message,
-            authorID: author,
-            commentedBookId: commentedBook,
+            authorID,
+            commentedBookId:bookID,
             likes:0,
             commentIds:[]
         });
 
         await newComment.save();
 
-        pusher.trigger(commentedBook, 'message', { author, message});
-        res.send(200).send('OK')
-    }
+        pusher.trigger(bookID, 'comment', { authorID, message});
+    },
+
+    getComment: async (req, res, next) => {
+        console.log('post comment function called');
+        try{
+            const comments = await Comment.find({commentedBookId: req.body.bookID}).sort({'creationDate': -1});
+            if(comments){
+                res.status(200).json(comments);
+            }
+        }catch (e) {
+            res.status(400).json(e.message);
+        }
+
+    },
 };

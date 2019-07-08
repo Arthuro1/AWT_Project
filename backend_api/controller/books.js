@@ -16,7 +16,7 @@ let options = {
 
 module.exports = {
 
-    search: async (req, res, next) => {
+    addBooks: async (req, res, next) => {
         console.log('search function called');
 
         books.search(req.body.lecture, options, function(error, results, apiResponse) {
@@ -26,13 +26,12 @@ module.exports = {
                    const bookFound = await Book.findOne({'id': book.id});
 
                    if(!bookFound){
-                       const newBook = new Book({lecture:req.body.lecture, title: book.title, subtitle: book.subtitle?book.subtitle:"", authors: book.authors, publisher: book.publisher, publishedDate: book.publishedDate, description: book.description?book.description:"", pageCount:book.pageCount, link: book.link, id: book.id, thumbnail: book.thumbnail, language: book.language, rating:{average: 0, sum: 0, idsOfVoter: []}, commentIds: []});
+                       const newBook = new Book({lecture: req.body.lecture, title: book.title, subtitle: book.subtitle?book.subtitle:"", authors: book.authors, publisher: book.publisher, publishedDate: book.publishedDate, description: book.description?book.description:"", pageCount:book.pageCount, link: book.link, id: book.id, thumbnail: book.thumbnail, language: book.language, rating:{average: 0, sum: 0, idsOfVoter: [], numberOfVoters: 0}, commentIds: []});
                        await newBook.save();
                    }
-
                });
 
-                res.status(200).json({apiResponse});
+                res.status(200).json({results});
 
             } else {
                 res.status(404).json(error);
@@ -82,11 +81,12 @@ module.exports = {
                    if(!found){
 
                        foundBook.rating.idsOfVoter.push(voterEmail);
-
+                       const actualNumberOfVoters = foundBook.rating.numberOfvoter+1;
                        const actualSum = foundBook.rating.sum+value;
                        const averageValue = actualSum/foundBook.rating.idsOfVoter.length;
                        foundBook.rating.average = averageValue;
                        foundBook.rating.sum = actualSum;
+                       foundBook.rating.numberOfvoter= actualNumberOfVoters;
                        foundBook.save(function(err) {
                            if (err) {console.log(err)}else{console.log("save rating successfully in book")}
                        });
@@ -99,8 +99,6 @@ module.exports = {
                    console.log(err);
                }
            });
-
-
     },
 
     topRatedBooks: async (req, res, next) => {
@@ -113,9 +111,9 @@ module.exports = {
     },
 
     searchByLecture: async (req, res, next) => {
+        console.log("request", req.body);
         const filter = req.body.filter;
             if (filter === "Best Ratings") {
-
                 await Book.find({lecture: req.body.lecture}).sort({'rating.average': -1}).limit(10).exec(function (err, result) {
                     console.log("filter: Best Ratings");
                     if (!err) res.status(200).send(result);
@@ -123,28 +121,15 @@ module.exports = {
                 });
 
             } else if (filter === "Most Rated") {
-
-                Book.aggregate([
-                    {
-                        $project: {
-                            authors: 1,
-                            title: 1,
-                            description: 1,
-                            thumbnail: 1,
-                            rating: 1,
-                            size: {$size: '$rating.idsOfVoter'}
-                        }
-                    }
-                ]).sort({size: -1}).limit(6).exec(function (err, result) {
+                await Book.find({lecture: req.body.lecture}).sort({'rating.numberOfvoter': -1}).limit(10).exec(function (err, result) {
                     console.log("filter: Most rated");
                     if (!err) res.status(200).send(result);
                     else res.send(err);
                 });
 
             } else {
-                console.log("no filter set");
+                console.log("no filter set", filter);
                 await Book.find({lecture: req.body.lecture}).exec(function (err, result) {
-                    console.log("no filter set");
                     if (!err) res.status(200).send(result);
                     else res.send(err);
                 });
@@ -153,12 +138,10 @@ module.exports = {
     },
 
     mostPopularBooks: async (req, res, next) => {
-        Book.aggregate([
-            { $project: { authors: 1, title: 1, description: 1, thumbnail: 1, rating: 1, size: { $size: '$rating.idsOfVoter' } } }
-        ]).sort({size: -1}).limit(6).exec(function(err, result){
-                if(!err) res.status(200).send(result);
-                else res.send(err);
+        await Book.find().sort({'rating.numberOfvoters': -1}).limit(10).exec(function (err, result) {
+            console.log("filter: Most rated");
+            if (!err) res.status(200).send(result);
+            else res.send(err);
         });
-
     }
 };

@@ -23,12 +23,7 @@ class HeaderDropdownMenu extends Component {
 
         console.log('isauth', this.props.isAuthentificated);
         console.log('user', this.props.user);
-        if(!this.props.isAuthentificated){
-            menuComponent = <a className="dropdown-item" href="/login">
-                                <i className="fa fa-sign-in"/>
-                                {"  "}LogIn
-                            </a>
-        }else{
+        if(this.props.isAuthentificated && this.props.user){
             menuComponent =
                 <div>
                     <div className="navbar-login">
@@ -39,8 +34,8 @@ class HeaderDropdownMenu extends Component {
                                 </p>
                             </div>
                             <div className="col-lg-8">
-                                <p className="text-left"><strong>{this.props.user?this.props.user.name: "Paul Meteng"}</strong></p>
-                                <p className="text-left small">{this.props.user?this.props.user.email: "arthur.meteng@gmail.com"}</p>
+                                <p className="text-left"><strong>{this.props.user?this.props.user.name: ""}</strong></p>
+                                <p className="text-left small">{this.props.user?this.props.user.email: ""}</p>
                                 <p className="text-left">
                                     <Link to="/" onClick={this.logOut} className="btn btn-outline-danger btn-block btn-sm"><i className="fa fa-sign-out"/>{"  "}Log out</Link>
                                 </p>
@@ -61,6 +56,11 @@ class HeaderDropdownMenu extends Component {
                         </div>
                     </div>
                 </div>
+        }else{
+            menuComponent = <a className="dropdown-item" href="/login">
+                <i className="fa fa-sign-in"/>
+                {"  "}LogIn
+            </a>
         }
         return (
             <div className="dropdown-menu" aria-labelledby="dropdown04">
