@@ -43,10 +43,18 @@ export default class AboutUs extends Component {
 
                         <div className="col-lg-6 pl-2 pl-lg-5">
                             <h2 className="mb-5">History</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius est soluta blanditiis velit doloremque corrupti aliquid ducimus consectetur ea nobis dolorem, id quibusdam praesentium consequuntur modi eligendi, sunt suscipit ullam iure nesciunt tempore. Itaque placeat, libero aliquam odio ex voluptas.</p>
-                            <p>Vel vitae, assumenda blanditiis nemo in vero reprehenderit asperiores distinctio exercitationem aliquid, quam velit explicabo neque. Sapiente provident sequi omnis itaque eaque voluptatum vel. Accusamus deserunt atque eligendi mollitia voluptates eum libero, ratione id labore. Magnam porro dolorem aspernatur, dolor?</p>
+                            <p>Look this beautiful photo!.</p>
+                            <p>Yes, this is us! And we are the group ‘AWT# ‘ It’s really an interesting name, isn’t it? Before talking about this name, now let's just begin with us.
+                                From the left to right, that’s Shahrzad Amini, Paul Meteng, Meijie Li, and Vidhya Vijayaraman. Just years ago, we all lived in different countries, that’s Iran, Kamerun, China and Indien.
+                            </p>
+                            <p>But now we are in the same group and have finished this project together, that’s really amazing. How can that come true?
+                                That just because we took part in an amazing course ‘Advanced Web Technology ’ together! Yes, we are all the student from Duisburg-Essen university and of course, we learned computer engineering. And this website is our project in this course. </p>
 
-                            <p className="mb-5">Vel vitae, assumenda blanditiis nemo in vero reprehenderit asperiores distinctio exercitationem aliquid, quam velit explicabo neque. Sapiente provident sequi omnis itaque eaque voluptatum vel. Accusamus deserunt atque eligendi mollitia voluptates eum libero, ratione id labore. Magnam porro dolorem aspernatur, dolor?</p>
+                            <p className="mb-5">We began with the idea that wants to help new students more clearly to choose their courses and we thought books maybe a very good idea to help students know this subject well. </p>
+                            <p>Most important is that you can share your inspirations here, so it also likes a communication platform for all the people who want to learn this subject.</p>
+                            <p> So it's also very useful for the people who have learned this subject. And we also have many good ideas haven't made it come true, we may add it later.</p>
+                            <p>At last, let talk about our interesting group name ‘AWT#’, you may have already guessed the meaning of ‘AWT ’, just the abbreviation of the name of our course ‘Advanced Web Technology’. And the why ‘#’? That just because “During react hands-on and lecture practice session we added # in code so we called our team as" hash".
+                            </p>
 
                         </div>
                     </div>

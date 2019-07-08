@@ -89,6 +89,7 @@ module.exports = {
     getComment: async (req, res, next) => {
         console.log('post comment function called');
         try{
+            console.log(req.body.bookID);
             const comments = await Comment.find({commentedBookId: req.body.bookID}).sort({'creationDate': -1});
             if(comments){
                 res.status(200).json(comments);

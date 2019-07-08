@@ -668,3 +668,13 @@ form button {
   max-width: 60% !important;
   height: 90% !important;
 }
+
+.color{
+  color: black !important
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em
+}

@@ -96,7 +96,7 @@ class BookPage extends Component {
 
     async componentDidMount() {
         console.log("book id", this.props.myBook);
-        await this.props.getComment(this.props.myBook.id);
+        await this.props.getComment({bookID: this.props.myBook.id});
     }
 
     render() {

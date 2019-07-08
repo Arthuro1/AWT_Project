@@ -15,6 +15,7 @@ import AWTCLASS2019  from '../images/AWTCLASS2019.jpg'
 import good from '../images/good.png'
 import star from '../images/favourites.png'
 import books from '../images/books.png'
+import firstslide from '../images/firstslide.jpg'
 
 export default class Homepage extends Component {
 
@@ -32,32 +33,23 @@ export default class Homepage extends Component {
                         </ol>
                         <div className="carousel-inner" >
                             <div className="carousel-item active">
-                                <img height="800px" className="d-block w-100" src={share} alt="First slide"/>
+                                <img height="800px" className="d-block w-100" src={firstslide} alt="First slide"/>
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h1>Lorem Ipsum</h1>
-                                    <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque
-                                        corrupti reiciendis.</p>
+                                    <h1>Do you have problem finding the right book?</h1>
                                     <p><a href="/register" className="btn btn-white btn-primary">Get Started</a></p>
                                 </div>
                             </div>
                             <div className="carousel-item">
                                 <img height="800px" className="d-block w-100" src={group} alt="Second slide"/>
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h1>Lorem Ipsum</h1>
-                                    <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque
-                                        corrupti reiciendis.</p>
+                                    <h1 className="color">Bookiz is the solution to your problem</h1>
                                     <p><a href="/register" className="btn btn-white btn-primary">Get Started</a></p>
                                 </div>
                             </div>
                             <div className="carousel-item">
                                 <img height="800px" className="d-block w-100 " src={AWTCLASS2019} alt="Third slide"/>
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h1>Lorem Ipsum</h1>
-                                    <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque
-                                        corrupti reiciendis.</p>
+                                    <h1>Here is where all started</h1>
                                     <p><a href="/register" className="btn btn-white btn-primary">Get Started</a></p>
                                 </div>
                             </div>
@@ -77,25 +69,22 @@ export default class Homepage extends Component {
 
 
                 <section className="section myBg element-animate">
-                    <div className="container">
-                        <div className="row">
+                    <div className="container center">
+                        <div className="row ">
                             <div className="col-md-6 mb-4 mb-lg-0 col-lg-3 text-center">
                                 <span className="display-4 text-black d-block mb-4"><img src={books} alt="default"/></span>
                                 <h4 className="mb-4 text-primary">Finding Books</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae hic maiores. Velit
-                                    nisi, reprehenderit, nobis officia.</p>
+                                <p>Here you can find many useful books related to the course you want to learn.</p>
                             </div>
                             <div className="col-md-6 mb-4 mb-lg-0 col-lg-3 text-center">
                                 <span className="display-4 text-black d-block mb-4"><img src={good} alt="default"/></span>
                                 <h4 className="mb-4 text-primary">Advising Books</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae hic maiores. Velit
-                                    nisi, reprehenderit, nobis officia.</p>
+                                <p>Here you can add comments to the books you have read and share your advices to other users.</p>
                             </div>
                             <div className="col-md-6 mb-4 mb-lg-0 col-lg-3 text-center">
                                 <span className="display-4 text-black d-block mb-4"><img src={star} alt="default"/></span>
                                 <h4 className="mb-4 text-primary">Rating</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae hic maiores. Velit
-                                    nisi, reprehenderit, nobis officia.</p>
+                                <p>You can rate the books you read.</p>
                             </div>
                         </div>
                     </div>
