@@ -66,9 +66,10 @@ passport.use('googleToken', new GooglePlusTokenStrategy({
             google: {
                 id: profile.id,
                 name: profile.displayName,
-                email: profile.emails[0].value,
-                imageUrl: profile.photos[0].value
-            }
+                email: profile.emails[0].value
+            },
+            imageUrl: profile.photos[0].value,
+            commentIds: []
         });
 
         await newUser.save();
@@ -96,9 +97,10 @@ passport.use('facebookToken', new FacebookTokenStrategy({
             facebook: {
                 id: profile.id,
                 name: profile.displayName,
-                email: profile.emails[0].value,
-                imageUrl: profile.photos[0].value
-            }
+                email: profile.emails[0].value
+            },
+            imageUrl: profile.photos[0].value,
+            commentIds: []
         });
 
         await newUser.save();

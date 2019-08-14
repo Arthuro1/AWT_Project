@@ -6,19 +6,28 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "concurrently": "^4.1.1",
+    "faker": "^4.1.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
     "popper.js": "^1.15.0",
+    "pusher-js": "^4.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.0.4",
     "react-multi-carousel": "^1.4.5",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-spinning-wheel": "^1.1.7",
     "react-star-ratings": "^2.3.0",
+    "react-timeago": "^4.4.0",
     "redux": "^4.0.1",
     "redux-form": "^8.2.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.87.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,12 +35,7 @@
     "backend-dev": "nodemon backend_api/server",
     "start-dev": "concurrently \"npm run backend-dev\" \"npm start\"",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "style:check": "tslint -c ./tslint.json --project ./",
-    "style:fix": "tslint -c ./tslint.json --fix --project ./"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -44,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-strongloop": "^2.1.0"
   }
 }

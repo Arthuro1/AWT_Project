@@ -1,13 +1,7 @@
-const express = require("express");
 const router = require('express-promise-router')();
 const passport = require('passport');
+
 const passportConfig = require('../config/passport');
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const keys = require("../config/keys");
-const validateRegisterInput = require("../validation/register");
-const validateLoginInput = require("../validation/login");
-const User = require("../models/user");
 const UserController = require('../controller/users');
 const {validateBody, schemas} = require('../helpers/routeHelpers');
 
@@ -31,5 +25,9 @@ router.route('/oauth/google')
 router.route('/oauth/facebook')
     .post(passportAutthentification ('facebookToken', false), UserController.facebookOAuth);
 
+router.route('/post-comment')
+    .post(UserController.postComment);
+router.route('/get-comment')
+    .post(UserController.getComment);
 
 module.exports = router;

@@ -13,7 +13,9 @@ export default class CustomInput extends Component{
                     className="form-control"
                     type={this.props.type}
                     value={value}
+                    style = {this.props.style}
                     onChange={onChange}
+                    required
                 />
             </div>
         );

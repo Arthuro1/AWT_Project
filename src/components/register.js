@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Header from "./header.component";
-import {Field, reduxForm} from "redux-form";
-import CustomInput from "./customInput.component";
-import Footer from "./footer.component";
 import {compose} from "redux";
 import {connect} from "react-redux";
+import {Field, reduxForm} from "redux-form";
+
+import CustomInput from "./customInput";
+import Header from "./header";
+import Footer from "./footer";
 import * as actions from "../actions";
-import SectionTitle from "./sectionTitle.component";
+
+import brand from "../images/hash.png";
 
 class Register extends Component {
     constructor(props) {
@@ -16,7 +18,12 @@ class Register extends Component {
     async onSubmit(formData){
         console.log('on submit');
         console.log(formData);
-        await this.props.register(formData)
+        await this.props.register(formData);
+        if(!this.props.errorMessage){
+            console.log(" no error");
+            this.props.history.push('/dashboard');
+        }
+        console.log("error");
     }
 
     render() {
@@ -25,30 +32,20 @@ class Register extends Component {
             <div>
                 <Header/>
                 <div className="section myBg container-fluid">
-                    <SectionTitle title="Get Started" backText="Register"/>
                     <div className="container Modal">
-                        <div className="logo">
-                        <i className="fa fa-hashtag" aria-hidden="true"></i>
-                        <span>  </span>
-                        </div>
+
                         <form onSubmit={handleSubmit(this.onSubmit)}>
+                            <div className="logo">
+                                <img height="90" src={brand} alt="logo"/>
+                                <span>Bookiz</span>
+                            </div>
                             <fieldset>
                                 <Field
-                                    name="firstName"
+                                    name="name"
                                     type="text"
-                                    id="firstName"
-                                    label="Firstname"
-                                    placeholder="e.g Paul"
-                                    component={CustomInput}
-                                />
-                            </fieldset>
-                            <fieldset>
-                                <Field
-                                    name="lastName"
-                                    type="text"
-                                    id="lastName"
-                                    label="Lastname"
-                                    placeholder="e.g Meteng"
+                                    id="name"
+                                    label="Name"
+                                    placeholder="e.g Paul Meteng"
                                     component={CustomInput}
                                 />
                             </fieldset>
@@ -78,12 +75,8 @@ class Register extends Component {
                                 {this.props.errorMessage}
                             </div>: null}
 
-                            <button type="submit" className="btn btn-primary">Log In</button>
+                            <button type="submit" className="cta-btn btn btn-primary">register</button>
                         </form>
-                        <div className='social-signin'>
-                            <button className="fb" onClick={ this.props.onClick }><i className="fa fa-facebook" aria-hidden="true"></i></button>
-                            <button className="gg" onClick={ this.props.onClick }><i className="fa fa-google" aria-hidden="true"></i></button>
-                        </div>
                     </div>
                 </div>
                 <Footer/>
@@ -94,7 +87,8 @@ class Register extends Component {
 
 function mapStateToProps(state){
     return {
-        errorMessage: state.auth.errorMessage
+        errorMessage: state.auth.errorMessage,
+        isAuthentificated: state.auth.isAuthentificated
     }
 }
 

@@ -40,3 +40,4 @@ reports
 # Typescript #
 ##############
 dist
+node_modules/
