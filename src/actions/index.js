@@ -174,7 +174,7 @@ export const postComment = data => {
     console.log('post comment body', data);
     try {
       const res = await axios.post(
-        ' https://whispering-spire-56164.herokuapp.com//users/post-comment',
+        ' https://whispering-spire-56164.herokuapp.com/users/post-comment',
         data
       );
       console.log('res', res);
