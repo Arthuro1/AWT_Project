@@ -1,91 +1,92 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Comment = require('./comment');
 
 const bookSchema = new Schema({
-    title: {
-        type: String,
+  title: {
+    type: String,
+  },
+  subtitle: {
+    type: String,
+  },
+
+  lecture: {
+    type: String,
+  },
+
+  authors: [],
+
+  publisher: {
+    type: String,
+  },
+
+  publishedDate: {
+    type: String,
+  },
+
+  description: {
+    type: String,
+  },
+
+  pageCount: {
+    type: Number,
+  },
+
+  link: {
+    type: String,
+  },
+
+  id: {
+    type: String,
+  },
+
+  thumbnail: {
+    type: String,
+  },
+
+  rating: {
+    average: {
+      type: Number,
     },
-    subtitle: {
-        type: String,
+
+    sum: {
+      type: Number,
     },
 
-    lecture: {
-        type: String,
-    },
-
-    authors: [
-
-    ],
-
-    publisher:{
-        type: String,
-    },
-
-    publishedDate:{
-        type: String,
-    },
-
-    description: {
-        type: String,
-    },
-
-    pageCount: {
-        type: Number,
-    },
-
-    link: {
-        type: String,
-    },
-
-    id: {
-        type: String,
-    },
-
-    thumbnail: {
-        type: String,
-    },
-
-    rating: {
-
-        average:{
-            type: Number,
+    listOfVotes: [
+      {
+        idsOfVoter: {
+          type: String,
         },
-
-        sum:{
-            type: Number,
-        },
-
-        idsOfVoter:[
-
-        ],
-        numberOfVoters:{
-            type: Number,
+        rating:{
+          type: Number,
         }
+      }
+    ],
+    numberOfVoters: {
+      type: Number,
     },
+  },
 
-    language: {
-        type: String,
-    },
+  language: {
+    type: String,
+  },
 
-    commentIds: [
+  commentIds: [],
 
-     ],
-
-    creationDate: {
-        type: Date,
-        default: Date.now
-    },
+  creationDate: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-bookSchema.pre('save', async function(next){
-    try{
-        next();
-    }catch (e) {
-        next(e);
-    }
+bookSchema.pre('save', async function(next) {
+  try {
+    next();
+  } catch (e) {
+    next(e);
+  }
 });
 
-const Book = mongoose.model("book", bookSchema);
+const Book = mongoose.model('book', bookSchema);
 
 module.exports = Book;

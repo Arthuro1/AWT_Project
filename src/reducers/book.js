@@ -1,7 +1,7 @@
 import {BOOK_SELECTED} from '../actions/types';
 
 const DEFAULT_STATE = {
-  oneBook: '',
+  oneBook: ''
 };
 
 export default (state = DEFAULT_STATE, action) => {

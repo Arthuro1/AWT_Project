@@ -1,16 +1,21 @@
-import {BOOK_RATING} from '../actions/types';
+import {BOOK_RATING, BOOK_RATING_ERROR} from '../actions/types';
 
 const DEFAULT_STATE = {
+  myRating: 0,
   rated: false,
-  rating: 0,
+  averageRating: 0,
+  numberOfVoters: 0,
+  errorMessage: ''
 };
 
 export default (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case BOOK_RATING:
       console.log('reduce got rate action', action.payload);
-      return {...state, rating: action.payload, rated: true};
-    default:
+      return {...state, myRating: action.payload.myRating, averageRating: action.payload.response.newValue, numberOfVoters: action.payload.response.numberOfVoters, rated: !!action.payload.response.newValue};
+    case BOOK_RATING_ERROR:
+      return {...state, errorMessage: action.payload};
+      default:
       return state;
   }
 };
