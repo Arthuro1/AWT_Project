@@ -13,7 +13,7 @@ import {
   POST_COMMENT,
   COMMENT_ERROR,
   BOOK_SELECTED,
-  LECTURE_SELECTED,
+  LECTURE_SELECTED, BOOK_RATING, BOOK_RATING_ERROR,
 } from './types';
 
 export const logIn = data => {
@@ -49,7 +49,7 @@ export const register = data => {
 
       dispatch({
         type: AUTH_REGISTER,
-        payload: res.data,
+        payload: res.data.token,
       });
 
       localStorage.setItem('JWT_TOKEN', res.data.token);
@@ -137,6 +137,28 @@ export const setBook = book => {
   };
 };
 
+export const setRating = data => {
+  return async dispatch => {
+    console.log('setRating action called', data);
+    try {
+      const response = await axios.post(
+          'http://localhost:5000/dashboard/books/rating',
+          data
+      );
+      console.log("rating response", response);
+      dispatch({
+        type: BOOK_RATING,
+        payload: {myRating: data.rating, response: response.data}
+      });
+  }catch(err){
+      dispatch({
+        type: BOOK_RATING_ERROR,
+        payload: err.message,
+      });
+    }
+  }
+};
+
 export const setLecture = lecture => {
   return async dispatch => {
     console.log('selectedLecture action called', lecture);
@@ -160,6 +182,8 @@ export const postComment = data => {
         type: POST_COMMENT,
         payload: data,
       });
+
+      getComment(data.bookID);
     } catch (e) {
       dispatch({
         type: COMMENT_ERROR,

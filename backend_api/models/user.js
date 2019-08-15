@@ -1,13 +1,15 @@
-const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 
-const userSchema = new Schema({
+const JWT_SECRET = process.env.JWT_SECRET;
 
+const userSchema = new Schema({
   method: {
     type: String,
     enum: ['local', 'google', 'facebook'],
-    required: true
+    required: true,
   },
 
   local: {
@@ -25,8 +27,8 @@ const userSchema = new Schema({
     },
   },
 
-  google:{
-    id:{
+  google: {
+    id: {
       type: String,
     },
     name: {
@@ -36,11 +38,11 @@ const userSchema = new Schema({
     email: {
       type: String,
       lowercase: true,
-    }
+    },
   },
 
-  facebook:{
-    id:{
+  facebook: {
+    id: {
       type: String,
     },
     name: {
@@ -50,26 +52,24 @@ const userSchema = new Schema({
     email: {
       type: String,
       lowercase: true,
-    }
+    },
   },
 
   imageUrl: {
     type: String,
   },
 
-  commentIds: [
-
-  ],
+  commentIds: [],
 
   creationDate: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
 });
 
-userSchema.pre('save', async function(next){
-  try{
-    if(this.method !== 'local'){
+userSchema.pre('save', async function(next) {
+  try {
+    if (this.method !== 'local') {
       next();
     }
 
@@ -77,18 +77,33 @@ userSchema.pre('save', async function(next){
     const passwordHash = await bcrypt.hash(this.local.password, salt);
     this.local.password = passwordHash;
     next();
-  }catch (e) {
+  } catch (e) {
     next(e);
   }
 });
 
-userSchema.methods.isValidPassword = async function(newPassword){
+userSchema.methods.isValidPassword = async function(newPassword) {
   try {
-   return await bcrypt.compare(newPassword, this.local.password);
-  }catch (e) {
+    return await bcrypt.compare(newPassword, this.local.password);
+  } catch (e) {
     throw new Error(e);
   }
 };
-const User = mongoose.model("user", userSchema);
+
+userSchema.methods.generateAuthToken = async function() {
+  // Generate an auth token for the user
+  const user = this;
+  const token = jwt.sign({
+    sub: user._id,
+    name: user.local.name,
+    email: user.local.email,
+    iat: new Date().getTime(),
+    exp: new Date().setDate(new Date().getDate() + 1),
+      },
+      JWT_SECRET);
+  return token;
+};
+
+const User = mongoose.model('user', userSchema);
 
 module.exports = User;

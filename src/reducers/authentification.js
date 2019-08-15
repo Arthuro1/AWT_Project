@@ -16,27 +16,29 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case AUTH_REGISTER:
+      console.log('user registered', action.payload);
       return {
         ...state,
         user: jwt.decode(action.payload),
-        token: action.payload.token,
-        isAuthentificated: true,
+        token: action.payload,
+        isAuthentificated: !!action.payload,
         errorMessage: '',
       };
     case AUTH_LOG_IN:
+      console.log('user logged in', action.payload);
       return {
         ...state,
         user: jwt.decode(action.payload),
-        token: action.payload.token,
-        isAuthentificated: true,
+        token: action.payload,
+        isAuthentificated: !!action.payload,
         errorMessage: '',
       };
     case AUTH_LOG_OUT:
       return {
         ...state,
         user: {},
-        token: action.payload.token,
-        isAuthentificated: false,
+        token: action.payload,
+        isAuthentificated: !!action.payload,
         errorMessage: '',
       };
     case AUTH_ERROR:
