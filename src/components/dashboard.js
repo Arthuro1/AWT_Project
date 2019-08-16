@@ -9,21 +9,25 @@ import Header from './header';
 import Footer from './footer';
 import SectionTitle from './sectionTitle';
 import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import Card from './card';
 import DropdownLecture from './dropdowns';
 
 const responsive = {
   desktop: {
     breakpoint: {max: 3000, min: 1024},
-    items: 3,
+    items: 5,
+    slidesToSlide: 5
   },
   tablet: {
     breakpoint: {max: 1024, min: 464},
     items: 2,
+    slidesToSlide: 2
   },
   mobile: {
     breakpoint: {max: 464, min: 0},
     items: 1,
+    slidesToSlide: 1
   },
 };
 
@@ -63,7 +67,7 @@ class Dashboard extends Component {
     } else {
       bookComponent = (
         <Carousel
-          centerMode={true}
+          centerMode={false}
           focusOnSelect={true}
           swipeable={false}
           draggable={false}
@@ -82,48 +86,80 @@ class Dashboard extends Component {
           deviceType={this.props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
+          partialVisbile={false}
         >
-          <Card data={this.props.searchResults[0]} />
-          <Card data={this.props.searchResults[1]} />
-          <Card data={this.props.searchResults[2]} />
-          <Card data={this.props.searchResults[3]} />
-          <Card data={this.props.searchResults[4]} />
-          <Card data={this.props.searchResults[5]} />
+
+          {Array.from(this.props.searchResults).map((_, i) =>
+              <Card data={this.props.searchResults[i]} />
+          )}
         </Carousel>
       );
     }
 
     if (!array[0]) {
-      component = wheel();
+      component = (
+          <Carousel
+              centerMode={false}
+              focusOnSelect={true}
+              swipeable={false}
+              draggable={false}
+              showDots={true}
+              responsive={responsive}
+              ssr={true} // means to render carousel on server-side.
+              slidesToSlide={2}
+              infinite={true}
+              autoPlay={false}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}
+              customTransition="all .5"
+              transitionDuration={2000}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={['tablet', 'mobile']}
+              deviceType={this.props.deviceType}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+              partialVisbile={false}
+          >
+
+            {Array.from(new Array(8)).map((_, i) =>
+                <div
+                    key={i}
+                    style={{
+                      height: 200,
+                      background: 'url(https://placeimg.com/380/200/nature)'
+                    }}
+                />
+            )}
+          </Carousel>
+      );
     } else {
       component = (
-        <Carousel
-          centerMode={true}
-          focusOnSelect={true}
-          swipeable={false}
-          draggable={false}
-          showDots={true}
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          slidesToSlide={2}
-          infinite={true}
-          autoPlay={false}
-          autoPlaySpeed={2000}
-          keyBoardControl={true}
-          customTransition="all .5"
-          transitionDuration={2000}
-          containerClass="carousel-container"
-          removeArrowOnDeviceType={['tablet', 'mobile']}
-          deviceType={this.props.deviceType}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-        >
-          <Card data={this.props.data[0]} />
-          <Card data={this.props.data[1]} />
-          <Card data={this.props.data[2]} />
-          <Card data={this.props.data[3]} />
-          <Card data={this.props.data[4]} />
-          <Card data={this.props.data[5]} />
+          <Carousel
+              centerMode={false}
+              focusOnSelect={true}
+              swipeable={false}
+              draggable={false}
+              showDots={true}
+              responsive={responsive}
+              ssr={true} // means to render carousel on server-side.
+              slidesToSlide={2}
+              infinite={true}
+              autoPlay={false}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}
+              customTransition="all .5"
+              transitionDuration={2000}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={['tablet', 'mobile']}
+              deviceType={this.props.deviceType}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+              partialVisbile={false}
+          >
+
+          {Array.from(this.props.data).map((_, i) =>
+              <Card data={this.props.data[i]} />
+          )}
         </Carousel>
       );
     }
