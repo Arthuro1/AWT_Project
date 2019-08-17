@@ -2,6 +2,13 @@ body {
   background: #1d2a33 url('images/bg.jpg') ;
 }
 
+p {
+    position: relative;
+    font-size: 20px;
+    margin: 35px 0;
+    line-height: 1.6;
+}
+
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
