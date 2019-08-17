@@ -10,6 +10,7 @@ p {
 }
 
 a {
+  color: dodgerblue !important;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
@@ -801,3 +802,12 @@ form button {
   color: #FF6347;
 }
 
+.links a{
+  color: dodgerblue;
+}
+
+.links p{
+  font-size: 12px;
+  padding: 1em 0;
+  color: grey;
+}
