@@ -41,7 +41,7 @@ export default class Homepage extends Component {
               <div className="carousel-item active">
                 <img
                   height="800px"
-                  className="d-block w-100"
+                  className="d-block img-fluid w-100"
                   src={firstslide}
                   alt="First slide"
                 />
@@ -57,7 +57,7 @@ export default class Homepage extends Component {
               <div className="carousel-item">
                 <img
                   height="800px"
-                  className="d-block w-100"
+                  className="d-block img-fluid w-100"
                   src={group}
                   alt="Second slide"
                 />
@@ -75,7 +75,7 @@ export default class Homepage extends Component {
               <div className="carousel-item">
                 <img
                   height="800px"
-                  className="d-block w-100 "
+                  className="d-block img-fluid w-100 "
                   src={AWTCLASS2019}
                   alt="Third slide"
                 />
@@ -109,7 +109,9 @@ export default class Homepage extends Component {
             </a>
           </div>
         </section>
+        <section className="">
 
+        </section>
         <section className="section myBg element-animate">
           <div className="container">
             <div className="row justify-content-center">

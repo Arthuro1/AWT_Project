@@ -32,10 +32,10 @@ export default class AboutUs extends Component {
                     <SectionTitle title="#-GROUP" backText=""/>
                     <div className="row">
                         <div className="col-lg-6 bg-transparent grouppic">
-                            <img height="90%" width="95%" src={groupselfii} alt="images"/>
+                            <img height="90%" className="rounded" width="95%" src={groupselfii} alt="images"/>
                         </div>
 
-                        <div className="col-lg-6 pl-2 pl-lg-5">
+                        <div className="col-lg-6 pl-2 pl-lg-5 justify-content-center">
                             <h2 className="mb-5"><b>History</b></h2>
                             <p>Look at this beautiful photo!</p>
                             <p>
@@ -58,7 +58,7 @@ export default class AboutUs extends Component {
                                 result of our project in this course.
                             </p>
 
-                            <p className="mb-5">
+                            <p className="">
                                 The goal was to come up with an idea that would facilitate students's lives and help
                                 them during their studies. We created this platform where new students can easily find
                                 the right books for their studies.
