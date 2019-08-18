@@ -36,10 +36,11 @@ class Lectures extends Component {
   async getLecture(event, data) {
     console.log('selected lecture', data.value);
     this.props.setLecture(data.value);
-    await this.props.searchForLecture({
+    await this.props.searchByLecture({
       filter: this.props.selectedFilter,
       lecture: data.value,
     });
+
   }
 
   render() {

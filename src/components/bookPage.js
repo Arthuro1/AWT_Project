@@ -89,6 +89,7 @@ class BookPage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.changeRating = this.changeRating.bind(this);
   }
+
   async onSubmit(formdata) {
     console.log('user', this.props.user);
     await this.props.postComment({
@@ -100,6 +101,7 @@ class BookPage extends Component {
 
   async componentDidMount() {
     console.log('book id', this.props.myBook);
+    await this.props.getBookById({bookID: this.props.myBook.id});
     await this.props.getComment({bookID: this.props.myBook.id});
   }
 
@@ -169,7 +171,7 @@ class BookPage extends Component {
                               starRatedColor="rgb(255,255,102)"
                               starHoverColor="rgb(255,255,102)"
                             />
-                            ({this.props.myBook.rating.listOfVotes.length})
+                            ({this.props.myBook.rating.numberOfVoters})
                           </td>
                         </tr>
                         <tr>
@@ -190,7 +192,7 @@ class BookPage extends Component {
                   <div className="container mb-3">
                     <b>My Rating</b>
                     <StarRatings
-                        rating={this.props.myRating}
+                        rating={this.props.myBook.rating.listOfVotes.find(o => o.idsOfVoter === this.props.user.email)?this.props.myBook.rating.listOfVotes.find(o => o.idsOfVoter === this.props.user.email).rating: 0}
                         changeRating={this.changeRating}
                         starDimension="40px"
                         starSpacing="1px"
@@ -254,7 +256,9 @@ function mapStateToProps(state) {
     myBook: state.book.oneBook,
     user: state.auth.user,
     rated: state.rate.rated,
-    myRating: state.rate.myRating
+    myRating: state.rate.myRating,
+    averageRating: state.rate.averageRating,
+    numberOfVoters: state.rate.numberOfVoters
   };
 }
 

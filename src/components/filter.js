@@ -10,8 +10,13 @@ class Filter extends Component {
     this.getFilter = this.getFilter.bind(this);
   }
 
-  getFilter(event, data) {
+  async getFilter(event, data) {
     this.props.setFilter(data.children);
+
+    if(this.props.selectedLecture){
+      await this.props.searchByLecture({filter: data.children, lecture: this.props.selectedLecture});
+    }
+
   }
   render() {
     return (
@@ -35,9 +40,15 @@ class Filter extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    selectedLecture: state.lecture.oneLecture,
+  };
+}
+
 export default compose(
   connect(
-    null,
+      mapStateToProps,
     actions
   )
 )(Filter);
