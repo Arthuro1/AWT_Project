@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import {
   AUTH_ERROR,
@@ -13,13 +14,13 @@ import {
   POST_COMMENT,
   COMMENT_ERROR,
   BOOK_SELECTED,
-  LECTURE_SELECTED, BOOK_RATING, BOOK_RATING_ERROR,
+  LECTURE_SELECTED, BOOK_RATING, BOOK_RATING_ERROR, GET_BOOK_ERROR
 } from './types';
 
 export const logIn = data => {
   return async dispatch => {
     try {
-      const res = await axios.post(' https://whispering-spire-56164.herokuapp.com/users/login', data);
+      const res = await axios.post('http://localhost:5000/users/login', data);
       console.log('res', res);
       const token = res.data.token;
       dispatch({
@@ -42,8 +43,8 @@ export const register = data => {
   return async dispatch => {
     try {
       const res = await axios.post(
-        ' https://whispering-spire-56164.herokuapp.com/users/register',
-        data
+          'http://localhost:5000/users/register',
+          data
       );
       console.log('res', res);
 
@@ -77,7 +78,7 @@ export const getDataFromDb = () => {
   return async dispatch => {
     try {
       const res = await axios.get(
-        ' https://whispering-spire-56164.herokuapp.com/dashboard/books/most-popular-books'
+          'http://localhost:5000/dashboard/books/most-popular-books'
       );
       console.log('res', res);
       dispatch({
@@ -104,13 +105,13 @@ export const setFilter = newFilter => {
   };
 };
 
-export const searchForLecture = data => {
+export const searchByLecture = data => {
   return async dispatch => {
     console.log('request body', data);
     try {
       const res = await axios.post(
-        ' https://whispering-spire-56164.herokuapp.com/dashboard/books/search-by-lecture',
-        data
+          'http://localhost:5000/dashboard/books/search-by-lecture',
+          data
       );
       console.log('res', res);
       dispatch({
@@ -127,13 +128,25 @@ export const searchForLecture = data => {
   };
 };
 
-export const setBook = book => {
+export const getBookById = bookID => {
   return async dispatch => {
-    console.log('selectedBook action called', book);
+    console.log('selectedBook action called', bookID);
+
+    try {
+      const response = await axios.post(
+          'http://localhost:5000/dashboard/books/getBookById',
+          bookID
+      );
     dispatch({
       type: BOOK_SELECTED,
-      payload: book,
+      payload: response.data,
     });
+    }catch(err){
+      dispatch({
+        type: GET_BOOK_ERROR,
+        payload: err.message,
+      });
+    }
   };
 };
 
@@ -142,15 +155,16 @@ export const setRating = data => {
     console.log('setRating action called', data);
     try {
       const response = await axios.post(
-          ' https://whispering-spire-56164.herokuapp.com/dashboard/books/rating',
+          'http://localhost:5000/dashboard/books/rating',
           data
       );
-      console.log("rating response", response);
+      console.log("rating response", response.data);
       dispatch({
         type: BOOK_RATING,
-        payload: {myRating: data.rating, response: response.data}
+        payload: {response: response.data}
       });
-  }catch(err){
+
+    }catch(err){
       dispatch({
         type: BOOK_RATING_ERROR,
         payload: err.message,
@@ -174,8 +188,8 @@ export const postComment = data => {
     console.log('post comment body', data);
     try {
       const res = await axios.post(
-        ' https://whispering-spire-56164.herokuapp.com/users/post-comment',
-        data
+          'http://localhost:5000/users/post-comment',
+          data
       );
       console.log('res', res);
       dispatch({
@@ -183,7 +197,6 @@ export const postComment = data => {
         payload: data,
       });
 
-      getComment(data.bookID);
     } catch (e) {
       dispatch({
         type: COMMENT_ERROR,
@@ -198,8 +211,8 @@ export const getComment = data => {
   return async dispatch => {
     try {
       const res = await axios.post(
-        ' https://whispering-spire-56164.herokuapp.com/users/get-comment',
-        data
+          'http://localhost:5000/users/get-comment',
+          data
       );
       console.log('res', res);
       dispatch({

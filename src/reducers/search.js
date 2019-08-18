@@ -5,9 +5,13 @@ const DEFAULT_STATE = {
   errorMessage: '',
 };
 
+function refreshPage() {
+  window.location.reload(false);
+}
 export default (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case SEARCH:
+      refreshPage();
       console.log('search reducer got called', action.payload);
       return {...state, data: action.payload, errorMessage: ''};
     case SEARCH_ERROR:

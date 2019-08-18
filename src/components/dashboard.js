@@ -97,41 +97,7 @@ class Dashboard extends Component {
     }
 
     if (!array[0]) {
-      component = (
-          <Carousel
-              centerMode={false}
-              focusOnSelect={true}
-              swipeable={false}
-              draggable={false}
-              showDots={true}
-              responsive={responsive}
-              ssr={true} // means to render carousel on server-side.
-              slidesToSlide={2}
-              infinite={true}
-              autoPlay={false}
-              autoPlaySpeed={2000}
-              keyBoardControl={true}
-              customTransition="all .5"
-              transitionDuration={2000}
-              containerClass="carousel-container"
-              removeArrowOnDeviceType={['tablet', 'mobile']}
-              deviceType={this.props.deviceType}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-40-px"
-              partialVisbile={false}
-          >
-
-            {Array.from(new Array(8)).map((_, i) =>
-                <div
-                    key={i}
-                    style={{
-                      height: 200,
-                      background: 'url(https://placeimg.com/380/200/nature)'
-                    }}
-                />
-            )}
-          </Carousel>
-      );
+      component = wheel();
     } else {
       component = (
           <Carousel

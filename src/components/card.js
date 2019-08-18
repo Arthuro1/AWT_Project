@@ -13,9 +13,10 @@ class Card extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  async  handleClick() {
     const book = this.props.data;
-    this.props.setBook(book);
+    console.log('book ID', book.id);
+    await this.props.getBookById({bookID: book.id});
     this.props.history.push('/book');
   }
   render() {
@@ -40,7 +41,6 @@ class Card extends Component {
                 {this.props.data.authors[0] ? this.props.data.authors[0] : ''}
               </cite>
             </p>
-
             <div className="card-footer d-inline-flex p-2">
               <StarRatings
                 rating={this.props.data.rating.average}
