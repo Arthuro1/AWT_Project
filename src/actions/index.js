@@ -20,7 +20,7 @@ import {
 export const logIn = data => {
   return async dispatch => {
     try {
-      const res = await axios.post('http://localhost:5000/users/login', data);
+      const res = await axios.post('https://whispering-spire-56164.herokuapp.com/users/login', data);
       console.log('res', res);
       const token = res.data.token;
       dispatch({
@@ -43,7 +43,7 @@ export const register = data => {
   return async dispatch => {
     try {
       const res = await axios.post(
-          'http://localhost:5000/users/register',
+          'https://whispering-spire-56164.herokuapp.com/users/register',
           data
       );
       console.log('res', res);
@@ -78,7 +78,7 @@ export const getDataFromDb = () => {
   return async dispatch => {
     try {
       const res = await axios.get(
-          'http://localhost:5000/dashboard/books/most-popular-books'
+          'https://whispering-spire-56164.herokuapp.com/dashboard/books/most-popular-books'
       );
       console.log('res', res);
       dispatch({
@@ -110,7 +110,7 @@ export const searchByLecture = data => {
     console.log('request body', data);
     try {
       const res = await axios.post(
-          'http://localhost:5000/dashboard/books/search-by-lecture',
+          'https://whispering-spire-56164.herokuapp.com/dashboard/books/search-by-lecture',
           data
       );
       console.log('res', res);
@@ -134,7 +134,7 @@ export const getBookById = bookID => {
 
     try {
       const response = await axios.post(
-          'http://localhost:5000/dashboard/books/getBookById',
+          'https://whispering-spire-56164.herokuapp.com/dashboard/books/getBookById',
           bookID
       );
     dispatch({
@@ -155,7 +155,7 @@ export const setRating = data => {
     console.log('setRating action called', data);
     try {
       const response = await axios.post(
-          'http://localhost:5000/dashboard/books/rating',
+          'https://whispering-spire-56164.herokuapp.com/dashboard/books/rating',
           data
       );
       console.log("rating response", response.data);
@@ -188,7 +188,7 @@ export const postComment = data => {
     console.log('post comment body', data);
     try {
       const res = await axios.post(
-          'http://localhost:5000/users/post-comment',
+          'https://whispering-spire-56164.herokuapp.com/users/post-comment',
           data
       );
       console.log('res', res);
@@ -211,7 +211,7 @@ export const getComment = data => {
   return async dispatch => {
     try {
       const res = await axios.post(
-          'http://localhost:5000/users/get-comment',
+          'https://whispering-spire-56164.herokuapp.com/users/get-comment',
           data
       );
       console.log('res', res);
