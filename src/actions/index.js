@@ -74,11 +74,11 @@ export const logOut = () => {
   };
 };
 
-export const getDataFromDb = () => {
+export const getTopRatedBooks = () => {
   return async dispatch => {
     try {
       const res = await axios.get(
-          'https://whispering-spire-56164.herokuapp.com/dashboard/books/most-popular-books'
+          'https://whispering-spire-56164.herokuapp.com/dashboard/books/top-rated-books'
       );
       console.log('res', res);
       dispatch({

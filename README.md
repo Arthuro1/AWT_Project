@@ -16,7 +16,6 @@ The Service can be reached on port 3000.
 
 ### Deployment
 We used Heroku for deployment. You can check the steps [here](https://devcenter.heroku.com/articles/git).
-### Features
 ### Libraries
 * **react**: For the user interface
 * **redux**: For Managing the different states of our application

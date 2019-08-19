@@ -52,7 +52,7 @@ class Dashboard extends Component {
 
   componentWillMount() {
     if (this.props.isAuthentificated) {
-      this.props.getDataFromDb();
+      this.props.getTopRatedBooks();
     }
   }
   render() {
@@ -88,7 +88,7 @@ class Dashboard extends Component {
         >
 
           {Array.from(this.props.searchResults).map((_, i) =>
-              <Card data={this.props.searchResults[i]} />
+              <Card key={i} data={this.props.searchResults[i]} />
           )}
         </Carousel>
       );
