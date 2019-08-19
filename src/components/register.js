@@ -44,7 +44,7 @@ class Register extends Component {
                   type="text"
                   id="name"
                   label="Name"
-                  placeholder="e.g Paul Meteng"
+                  placeholder="(e.g Paul Meteng)"
                   component={CustomInput}
                 />
               </fieldset>
@@ -64,7 +64,7 @@ class Register extends Component {
                   type="password"
                   id="password"
                   label="Password"
-                  placeholder="password"
+                  placeholder="password with min length=8, alphaNum required (e.g: abcd1234)"
                   component={CustomInput}
                 />
               </fieldset>
