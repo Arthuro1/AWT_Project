@@ -82,7 +82,6 @@ class Dashboard extends Component {
           customTransition="all .5"
           transitionDuration={2000}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={['tablet', 'mobile']}
           deviceType={this.props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
@@ -116,7 +115,6 @@ class Dashboard extends Component {
               customTransition="all .5"
               transitionDuration={2000}
               containerClass="carousel-container"
-              removeArrowOnDeviceType={['tablet', 'mobile']}
               deviceType={this.props.deviceType}
               dotListClass="custom-dot-list-style"
               itemClass="carousel-item-padding-40-px"
