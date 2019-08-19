@@ -1,4 +1,4 @@
-# AWT_Project_BackEnd  [![node: v10.15.1](https://img.shields.io/badge/node-v10.15.1-green.svg?style=flat-square)](https://nodejs.org/dist/latest-v10.x/docs/api/) [![npm: $=v6.4.1](https://img.shields.io/badge/npm-%3E=v6.4.1.x-red.svg?style=flat-square)](https://www.npmjs.com/package/npm) 
+# AWT_Project  [![node: v10.15.1](https://img.shields.io/badge/node-v10.15.1-green.svg?style=flat-square)](https://nodejs.org/dist/latest-v10.x/docs/api/) [![npm: $=v6.4.1](https://img.shields.io/badge/npm-%3E=v6.4.1.x-red.svg?style=flat-square)](https://www.npmjs.com/package/npm) 
  This repository is the front-end of our our project **"BookIz"**
 
 ## Local Installation
@@ -21,7 +21,7 @@ We used Heroku for deployment. You can check the steps [here](https://devcenter.
 * **react**: For the user interface
 * **redux**: For Managing the different states of our application
 *  **axios**: For sending request to the server
-* **bootstrap**: Framework CSS
+* **bootstrap**: Framework CSS used to make our application be usable for smartphones, tablets and laptops.  
 * **jsonwebtoken**: For authetification of users
 
 ### Authors
