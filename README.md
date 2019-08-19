@@ -12,23 +12,18 @@ $ npm install
 ``` shell
 $ npm start
 ```
-The Service can be reached on port 5000.
+The Service can be reached on port 3000.
 
 ### Deployment
 We used Heroku for deployment. You can check the steps [here](https://devcenter.heroku.com/articles/git).
 ### Features
-'
 ### Libraries
-*  **express**: Framework for Node Server
-* **mongoose**: Framework For MongoDB
-* **google-books-search**: Provides the books
+* **react**: For the user interface
+* **redux**: For Managing the different states of our application
+*  **axios**: For sending request to the server
+* **bootstrap**: Framework CSS
 * **jsonwebtoken**: For authetification of users
-* **passport-jwt**: For authentification
-* **passport-local**: For authentification 
-* **bcryptjs**: For password encryption 
-* **joi**: For schema validation during login/registration 
+
 ### Authors
 * **The Hash-Group**
-### Acknowledgements
-+ **Google Book API** Which provides the books for this application.
 
