@@ -62,10 +62,6 @@ class HeaderDropdownMenu extends Component {
                     <i className="fa fa-address-card " />
                     {'  '}My Profile
                   </a>
-                  <a href="/change_password" className="dropdown-item">
-                    <i className="fa fa-undo" />
-                    {'  '}Change Password
-                  </a>
                 </p>
               </div>
             </div>

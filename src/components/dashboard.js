@@ -55,7 +55,6 @@ class Dashboard extends Component {
       this.props.getDataFromDb();
     }
   }
-
   render() {
     const array = this.props.data;
     const booksResult = this.props.searchResults;

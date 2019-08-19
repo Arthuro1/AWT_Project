@@ -128,15 +128,17 @@ class BookPage extends Component {
               <div className="card container-fluid mb-3 px-2 myBg">
                 <div className="row no-gutters">
                   <div className="my-3 mx-3 col-md-3">
-                    <img
-                      src={
-                        this.props.myBook.thumbnail
-                          ? this.props.myBook.thumbnail
-                          : Book
-                      }
-                      className="cardSize card-img "
-                      alt="..."
-                    />
+                    <a href={this.props.myBook.link}>
+                      <img
+                          src={
+                            this.props.myBook.thumbnail
+                                ? this.props.myBook.thumbnail
+                                : Book
+                          }
+                          className="cardSize card-img "
+                          alt="..."
+                      />
+                    </a>
                   </div>
                   <div className="col-md-8 my-3 mx-3 table-responsive-sm">
                     <table className="table table-striped">
