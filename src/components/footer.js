@@ -8,26 +8,22 @@ export default class Footer extends Component {
           <div className="row mb-5">
             <div className="col-md-4 mb-5">
               <h3>Social Meida</h3>
+              You can actually check out our repositories for front-end and back-end. There is also a teaser videos as well as a small tutorial for this project.
 
               <ul className="list-unstyled footer-link d-flex footer-social">
-                <li>
-                  <a href="https://twitter.com/" className="p-2">
-                    <span className="fa fa-twitter" />
+                <li>videos
+                  <a href="https://youtu.be/WJbT_EqNyoQ" className="p-2">
+                    <span className="fa fa-youtube" />
                   </a>
                 </li>
-                <li>
-                  <a href="https://www.facebook.com" className="p-2">
-                    <span className="fa fa-facebook" />
+                <li>Front-end
+                  <a href="https://github.com/Arthuro1/AWT_Project" className="p-2">
+                    <span className="fa fa-github" />
                   </a>
                 </li>
-                <li>
-                  <a href="https://www.linkedin.com" className="p-2">
-                    <span className="fa fa-linkedin" />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/" className="p-2">
-                    <span className="fa fa-instagram" />
+                <li>Back-end
+                  <a href="https://github.com/Arthuro1/AWT_Project_BackEnd" className="p-2">
+                    <span className="fa fa-github-alt" />
                   </a>
                 </li>
               </ul>

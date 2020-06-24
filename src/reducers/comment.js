@@ -6,10 +6,15 @@ const DEFAULT_STATE = {
   comments: [],
 };
 
+function refreshPage() {
+  window.location.reload(false);
+}
+
 export default (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case POST_COMMENT:
-      console.log('reduce got  post comment action', action.payload.data);
+      refreshPage();
+      console.log('reducer got post comment action', action.payload.data);
       return {
         ...state,
         text: action.payload.message,
@@ -17,7 +22,7 @@ export default (state = DEFAULT_STATE, action) => {
         errorMessage: '',
       };
     case GET_COMMENT:
-      console.log('reduce got get comment action', action.payload);
+      console.log('reducer got get comment action', action.payload);
       return {...state, comments: action.payload.data, errorMessage: ''};
     case COMMENT_ERROR:
       console.log('reducer got error comment action');

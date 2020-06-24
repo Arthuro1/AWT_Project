@@ -66,6 +66,9 @@ class Login extends Component {
               <button type="submit" className="btn btn-primary">
                 Log In
               </button>
+              <div className="d-flex justify-content-center text-center links">
+                <p>Don't have an account?<a href="/register">Register</a></p>
+              </div>
             </form>
           </div>
         </div>

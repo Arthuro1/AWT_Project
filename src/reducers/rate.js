@@ -8,11 +8,16 @@ const DEFAULT_STATE = {
   errorMessage: ''
 };
 
+function refreshPage() {
+  window.location.reload(false);
+}
+
 export default (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case BOOK_RATING:
+      refreshPage();
       console.log('reduce got rate action', action.payload);
-      return {...state, myRating: action.payload.myRating, averageRating: action.payload.response.newValue, numberOfVoters: action.payload.response.numberOfVoters, rated: !!action.payload.response.newValue};
+      return {...state, myRating: action.payload.response.rating, averageRating: action.payload.response.newValue, numberOfVoters: action.payload.response.numberOfVoters, rated: !!action.payload.response.rating};
     case BOOK_RATING_ERROR:
       return {...state, errorMessage: action.payload};
       default:

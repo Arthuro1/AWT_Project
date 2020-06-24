@@ -14,3 +14,4 @@ export const POST_COMMENT = 'POST_COMMENT';
 export const COMMENT_ERROR = 'COMMENT_ERROR';
 export const BOOK_RATING = 'BOOK_RATING';
 export const BOOK_RATING_ERROR= 'BOOK_RATING_ERROR';
+export const GET_BOOK_ERROR = 'GET_BOOK_ERROR';
